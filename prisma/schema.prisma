@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model ContactSubmission {
+  id        String   @id @default(cuid())
+  fullName  String   @map("full_name")
+  email     String
+  message   String   @db.Text
+  ipAddress String?  @map("ip_address")
+  userAgent String?  @map("user_agent") @db.Text
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([createdAt])
+  @@index([email])
+  @@map("contact_submissions")
+}
+
+model OrderSubmission {
+  id               String   @id @default(cuid())
+  clientName       String   @map("client_name")
+  clientPhone      String   @map("client_phone")
+  clientEmail      String   @map("client_email")
+  orderDescription String   @map("order_description") @db.Text
+  pdfPath          String?  @map("pdf_path")
+  ipAddress        String?  @map("ip_address")
+  userAgent        String?  @map("user_agent") @db.Text
+  emailSent        Boolean  @default(false) @map("email_sent")
+  createdAt        DateTime @default(now()) @map("created_at")
+
+  @@index([createdAt])
+  @@index([clientEmail])
+  @@index([emailSent])
+  @@map("order_submissions")
+}
