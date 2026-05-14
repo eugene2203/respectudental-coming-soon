@@ -1,215 +1,140 @@
 # Respect U Dental Lab - Website
 
-A modern, SEO-optimized fullstack web application for Respect U Dental Lab built with Next.js 16, TypeScript, and MariaDB.
+Full-stack Next.js application for Respect U Dental Lab with contact forms, order management, PDF generation, and email notifications.
 
-## Tech Stack
+## 🚀 Quick Start
 
-- **Framework**: Next.js 16.2.6 (App Router)
-- **Language**: TypeScript 7.8.0
-- **Database**: MariaDB 11.6
-- **ORM**: Prisma 7.8.0
-- **PDF Generation**: Puppeteer 24.43.1
-- **Email**: Mailgun.js 13.0.1
-- **Forms**: React Hook Form 7.75.0 + Zod 4.4.3
-- **Rate Limiting**: rate-limiter-flexible 5.0.3
-- **Containerization**: Docker + Docker Compose
-
-## Features
-
-- ✅ SEO optimized (metadata, JSON-LD, Open Graph, sitemap)
-- ✅ Contact form with email notifications
-- ✅ Order form with PDF generation and email delivery
-- ✅ Rate limiting (1 request/second per IP)
-- ✅ Form validation with Zod
-- ✅ Responsive design
-- ✅ Docker containerization
-- ✅ MariaDB database with Prisma ORM
-
-## Project Structure
-
-```
-respectudental.com/
-├── src/
-│   ├── app/              # Next.js App Router pages
-│   ├── components/       # React components
-│   │   └── forms/        # ContactForm, OrderForm
-│   ├── actions/          # Server Actions
-│   ├── lib/              # Utilities (prisma, mailgun, pdf, rate-limiter)
-│   └── types/            # TypeScript types
-├── prisma/
-│   ├── schema.prisma     # Database schema
-│   └── prisma.config.ts  # Prisma configuration
-├── public/images/        # Static assets
-├── docker-compose.yml    # Docker services
-├── Dockerfile            # App container
-└── .env.example          # Environment variables template
-```
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js 24.x
-- Docker & Docker Compose
-- Mailgun account (for email functionality)
-
-### Installation
-
-1. **Clone and install dependencies**:
+### Development (Hot Reload)
 ```bash
-npm install
+./dev.sh
 ```
+- Opens on http://localhost:3000
+- Changes apply instantly
+- Adminer on http://localhost:8080
 
-2. **Set up environment variables**:
+### Production
+```bash
+./prod.sh
+```
+- Optimized build
+- Standalone Next.js server
+- Ready for deployment
+
+## 📋 Tech Stack
+
+- **Framework**: Next.js 16.2.6 (App Router) + TypeScript 5
+- **Database**: MariaDB 11.6 + Prisma ORM 5.22.0
+- **Styling**: Tailwind CSS 4
+- **Forms**: React Hook Form + Zod
+- **Email**: Mailgun.js
+- **PDF**: Puppeteer
+- **Security**: reCAPTCHA v3 + Rate Limiting
+- **Deployment**: Docker + Docker Compose
+
+## 🔧 Configuration
+
+1. Copy environment variables:
 ```bash
 cp .env.example .env
 ```
 
-Edit `.env` and fill in your credentials:
-- `DATABASE_URL` - MariaDB connection string
-- `MAILGUN_API_KEY` - Your Mailgun API key
-- `MAILGUN_DOMAIN` - Your Mailgun domain
-- `MAILGUN_FROM_EMAIL` - Sender email address
-- `ADMIN_EMAIL` - Email to receive notifications
-
-3. **Generate Prisma Client**:
+2. Fill in required values:
 ```bash
-npx prisma generate
+MAILGUN_API_KEY=your_key_here
+RECAPTCHA_SECRET_KEY=your_key_here
+ADMIN_EMAIL=your_email@domain.com
 ```
 
-### Development
-
-**Option 1: Local Development (without Docker)**
-
-1. Start MariaDB locally or use a cloud instance
-2. Run migrations:
+3. Start development:
 ```bash
-npx prisma migrate dev
-```
-3. Start dev server:
-```bash
-npm run dev
-```
-4. Open [http://localhost:3000](http://localhost:3000)
-
-**Option 2: Docker Development**
-
-1. Start all services:
-```bash
-docker-compose up -d
-```
-2. Run migrations:
-```bash
-docker-compose exec app npx prisma migrate deploy
-```
-3. Open [http://localhost:3000](http://localhost:3000)
-4. Access Adminer (DB UI): [http://localhost:8080](http://localhost:8080)
-
-### Production Build
-
-```bash
-npm run build
-npm run start
+./dev.sh
 ```
 
-### Docker Production
+## 📚 Documentation
 
-```bash
-docker-compose up -d
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for:
+- Detailed setup instructions
+- Production deployment guide
+- Troubleshooting
+- Configuration details
+- Nginx setup
+- Security checklist
+
+## 🗂️ Project Structure
+
+```
+├── src/
+│   ├── app/              # Next.js App Router pages
+│   ├── actions/          # Server Actions (forms)
+│   ├── components/       # React components
+│   ├── lib/              # Utilities (Prisma, Mailgun, PDF, etc.)
+│   └── types/            # TypeScript types
+├── prisma/
+│   └── schema.prisma     # Database schema
+├── public/               # Static assets
+├── docker-compose.yml    # Production config
+├── docker-compose.dev.yml # Development config
+├── Dockerfile            # Production image
+├── Dockerfile.dev        # Development image
+├── dev.sh                # Start development
+└── prod.sh               # Start production
 ```
 
-## Database Migrations
+## 🔐 Features
 
-Create a new migration:
-```bash
-npx prisma migrate dev --name migration_name
-```
+- ✅ Contact form with email notifications
+- ✅ Order form with PDF generation
+- ✅ Google reCAPTCHA v3 protection
+- ✅ Rate limiting (1 req/sec)
+- ✅ Email via Mailgun
+- ✅ Database persistence
+- ✅ SEO optimized (meta tags, Schema.org)
+- ✅ Docker deployment
+- ✅ Hot reload in development
 
-Apply migrations in production:
-```bash
-npx prisma migrate deploy
-```
-
-## Environment Variables
-
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `DATABASE_URL` | MariaDB connection string | Yes |
-| `MAILGUN_API_KEY` | Mailgun API key | Yes |
-| `MAILGUN_DOMAIN` | Mailgun domain | Yes |
-| `MAILGUN_FROM_EMAIL` | Sender email | Yes |
-| `ADMIN_EMAIL` | Admin notification email | Yes |
-| `RATE_LIMIT_MAX_REQUESTS` | Max requests per window | No (default: 1) |
-| `RATE_LIMIT_WINDOW_MS` | Rate limit window in ms | No (default: 1000) |
-| `PDF_STORAGE_PATH` | PDF storage directory | No (default: /tmp) |
-
-## Pages
+## 📄 Pages
 
 - `/` - Home page
-- `/about` - About Us (placeholder)
-- `/services` - Services (placeholder)
-- `/contact` - Contact page (placeholder)
-- `/privacy` - Privacy Policy (placeholder)
-- `/terms` - Terms of Service (placeholder)
+- `/about` - About company
+- `/services` - Services offered
+- `/contact` - Contact form
+- `/privacy` - Privacy Policy
+- `/terms` - Terms of Service
 
-## Forms
-
-### Contact Form
-- Fields: Full Name, Email, Message
-- Validation: Zod schema
-- Rate limiting: 1 request/second
-- Email notification to admin
-
-### Order Form
-- Fields: Client Name, Phone, Email, Order Description
-- Validation: Zod schema
-- Rate limiting: 1 request/second
-- PDF generation with order details
-- Email notification to admin with PDF attachment
-
-## PDF Cleanup
-
-PDFs are stored in `/tmp` directory. Set up a cron job to clean old PDFs:
+## 🛠️ Development Commands
 
 ```bash
-# Clean PDFs older than 7 days
-0 0 * * * find /tmp -name "order-*.pdf" -mtime +7 -delete
+# Start dev environment
+./dev.sh
+
+# Start production environment
+./prod.sh
+
+# Run Prisma migrations
+docker-compose -f docker-compose.dev.yml exec app npx prisma migrate dev
+
+# View logs
+docker-compose logs -f app
+
+# Access database
+docker-compose exec db mysql -u respectu_user -p
 ```
 
-## Security
+## 🌐 Production Deployment
 
-- Rate limiting on all forms (1 req/sec per IP)
-- Input validation with Zod
-- SQL injection protection via Prisma
-- XSS protection via React
-- CSRF protection via Next.js
-- Environment variables for secrets
+1. Set up Nginx reverse proxy (see DEPLOYMENT.md)
+2. Configure SSL certificates
+3. Update `.env` with production values
+4. Run `./prod.sh`
+5. Apply database migrations
 
-## Troubleshooting
+## 📝 License
 
-**Prisma Client not found**:
-```bash
-npx prisma generate
-```
+Private project for Respect U Dental Lab.
 
-**Database connection error**:
-- Check `DATABASE_URL` in `.env`
-- Ensure MariaDB is running
-- Verify credentials
+## 📧 Contact
 
-**PDF generation fails**:
-- Ensure Chromium is installed (Docker handles this)
-- Check `/tmp` directory permissions
-
-**Email not sending**:
-- Verify Mailgun credentials
-- Check Mailgun domain verification
-- Review logs for errors
-
-## License
-
-Private - Respect U Dental Lab
-
-## Support
-
-For issues or questions, contact: contact@respectudental.com
+- **Website**: https://respectudental.com
+- **Email**: contact@respectudental.com
+- **Phone**: +1 (718) 200-1532
+- **Address**: 1 Woodside Ave, Brooklyn, NY 11223
