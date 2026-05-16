@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "@/styles/tailwind.css";
+import "@/styles/app.scss";
 import Script from "next/script";
+import Header from "@/components/common/Header";
+import Footer from "@/components/common/Footer";
 
 export const metadata: Metadata = {
   title: "Respect U Dental Lab | Crowns, Implants & Prosthetics in Brooklyn, NY",
@@ -51,10 +54,6 @@ export default function RootLayout({
         <link rel="canonical" href="https://respectudental.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
-          rel="stylesheet"
-        />
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -112,7 +111,13 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <div className="main-wrap flex flex-col min-h-screen relative">
+          <Header />
+          <main className="grow">{children}</main>
+          <Footer />
+        </div>
+      </body>
     </html>
   );
 }

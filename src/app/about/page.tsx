@@ -1,10 +1,20 @@
+import BreadCrumbs from "@/components/common/BreadCrumbs";
+import AboutBanner from "@/components/about-page/AboutBanner";
+import MissionBlock from "@/components/about-page/MissionBlock";
+import AboutLaboratoryBlock from "@/components/about-page/AboutLaboratoryBlock";
+import TeamBlock from "@/components/about-page/TeamBlock";
+import ReadyToPartnerBlock from "@/components/about-page/ReadyToPartnerBlock";
+
 export default function AboutPage() {
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-[var(--light-bg)]">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold text-[var(--dark-blue)] mb-4">About Us</h1>
-        <p className="text-xl text-[var(--dark-blue)]">Need to be designed</p>
-      </div>
-    </div>
-  );
+
+    return (
+        <>
+            <BreadCrumbs page={'About Page'}/>
+            <AboutBanner/>
+            <MissionBlock/>
+            <AboutLaboratoryBlock/>
+            <TeamBlock/>
+            <ReadyToPartnerBlock/>
+        </>
+    )
 }

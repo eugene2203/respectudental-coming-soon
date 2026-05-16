@@ -26,3 +26,23 @@ export interface FormResponse {
   message: string
   error?: string
 }
+
+export interface ParentPage {
+  link: string;
+  cap: string;
+}
+
+export interface BreadCrumbsProps {
+  parentPages?: ParentPage[];
+  page: string;
+}
+
+export interface MenuItem {
+  name: string;
+  link: string;
+}
+
+export interface SocialItem {
+  icon: string;
+  link: string;
+}
