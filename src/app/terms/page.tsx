@@ -38,8 +38,8 @@ export default function PrivacyPAge() {
                         <p>
                             Help Instructions: If you are experiencing issues with the messaging program you
                             can reply with the keyword "HELP" for more assistance, or you can get help directly
-                            at <a href="mailto:contact@respectudental.com">contact@respectudental.com</a>
-                             or by calling <a href="tel:17182001532">+1 (718) 200-1532</a>.<br/>
+                            at <a href="mailto:contact@respectudental.com">contact@respectudental.com</a>&nbsp;
+                            or by calling <a href="tel:17182001532">+1 (718) 200-1532</a>.<br/>
                             Carrier Liability: Carriers are not liable for delayed or undelivered messages.
                         </p>
                         <p>
@@ -49,8 +49,8 @@ export default function PrivacyPAge() {
                             it is best to contact your wireless provider.
                         </p>
                         <p>
-                            Privacy: If you have any questions regarding privacy, please read our
-                             <Link href="/privacy">Privacy Policy</Link>
+                            Privacy: If you have any questions regarding privacy, please read our&nbsp;
+                            <Link href="/privacy">Privacy Policy</Link>
                         </p>
                         <h2>2. Services</h2>
                         <p>
