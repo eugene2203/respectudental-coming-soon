@@ -13,8 +13,8 @@ export default function AboutPage() {
             <AboutBanner/>
             <MissionBlock/>
             <AboutLaboratoryBlock/>
-            <TeamBlock/>
-            <ReadyToPartnerBlock/>
+            {/*<TeamBlock/>*/}
+            {/*<ReadyToPartnerBlock/>*/}
         </>
     )
 }

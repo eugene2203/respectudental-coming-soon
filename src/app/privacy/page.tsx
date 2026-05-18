@@ -183,7 +183,7 @@ export default function PrivacyPAge() {
                                     1 Woodside Ave, Brooklyn, NY 11223
                                 </a>
                             </p>
-                            <p>📞 Phone: <a href="tel:17182001535">+1 (718) 200-1535</a></p>
+                            <p>📞 Phone: <a href="tel:17182001532">+1 (718) 200-1532</a></p>
                             <p>✉️ Email: <a href="mailto:contact@respectudental.com" target="_blank">contact@respectudental.com</a></p>
                             <p>🌐 Website: <a href="https://respectudental.com" target="_blank"> https://respectudental.com</a></p>
                         </div>
