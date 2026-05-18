@@ -1,4 +1,16 @@
 import BreadCrumbs from "@/components/common/BreadCrumbs";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Privacy Policy | Respect U Dental Lab - Data Protection & Security",
+    description: "Read Respect U Dental Lab's privacy policy. Learn how we collect, use, and protect your personal information. HIPAA compliant dental laboratory in Brooklyn, NY.",
+    keywords: ["privacy policy", "data protection", "HIPAA compliance", "dental lab privacy", "patient information security"],
+    openGraph: {
+        title: "Privacy Policy | Respect U Dental Lab",
+        description: "Our commitment to protecting your privacy and personal information.",
+        url: "https://respectudental.com/privacy",
+    },
+};
 
 export default function PrivacyPAge() {
 

@@ -1,5 +1,17 @@
 import BreadCrumbs from "@/components/common/BreadCrumbs";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Terms of Service | Respect U Dental Lab - Legal Terms & Conditions",
+    description: "Read Respect U Dental Lab's terms of service. Understand our policies, SMS messaging terms, A2P 10DLC compliance, and service agreements for dental laboratory services in Brooklyn, NY.",
+    keywords: ["terms of service", "legal terms", "service agreement", "dental lab terms", "SMS terms", "A2P compliance"],
+    openGraph: {
+        title: "Terms of Service | Respect U Dental Lab",
+        description: "Our terms of service and legal agreements for dental laboratory services.",
+        url: "https://respectudental.com/terms",
+    },
+};
 
 export default function PrivacyPAge() {
 

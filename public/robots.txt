@@ -1,0 +1,11 @@
+# Robots.txt for Respect U Dental Lab
+# https://respectudental.com
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /tmp/
+
+# Sitemap
+Sitemap: https://respectudental.com/sitemap.xml
