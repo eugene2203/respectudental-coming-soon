@@ -9,15 +9,15 @@ export default function PrivacyPAge() {
                 <div className="container">
                     <div>
                         <h1 className="mb-0 text-center font-bold">Privacy Policy</h1>
-                        <p className="mb-0 text-center">ARC DENTISTRY CORP</p>
-                        <p className="mb-16 text-center">Last Updated: March 25, 2026</p>
+                        <p className="mb-0 text-center">Respect U Dental Laboratory</p>
+                        <p className="mb-16 text-center">Last Updated: May 18, 2026</p>
                     </div>
                     <div>
                         <p>
-                            This privacy notice for ARC DENTISTRY CORP ("we," "us," or "our"),
+                            This privacy notice for Respect U Dental Laboratory ("we," "us," or "our"),
                             describes how and why we might collect, store, use, and/or share ("process")
                             your information when you use our services ("Services"), such as
-                            when you visit our website at <a href="https://www.arc-dentistry.com" target="_blank">https://www.arc-dentistry.com</a>,
+                            when you visit our website at <a href="https://respectudental.com" target="_blank">https://respectudental.com</a>,
                             request a free consultation or smile makeover appointment, or engage with us in other related ways,
                             including any sales, marketing, or customer service interactions.
                         </p>
@@ -25,7 +25,7 @@ export default function PrivacyPAge() {
                             Questions or concerns? Reading this privacy notice will help you understand your
                             privacy rights and choices. If you do not agree with our policies and practices,
                             please do not use our Services. If you still have any questions or concerns,
-                            please contact us at <a href="mailto:bookings@arc-dentistry.com">bookings@arc-dentistry.com</a>.
+                            please contact us at <a href="mailto:contact@respectudental.com">contact@respectudental.com</a>.
                         </p>
                         <h2>1. What Information Do We Collect?</h2>
                         <p>
@@ -71,7 +71,7 @@ export default function PrivacyPAge() {
                         <p>
                             We highly value your privacy, especially regarding your mobile contact information.
                             When you provide your phone number and opt-in to receive text messages
-                            from ARC DENTISTRY CORP, you are consenting to receive communications
+                            from Respect U Dental Laboratory, you are consenting to receive communications
                             regarding your appointment confirmations, appointment reminders, responses
                             to service inquiries, and, if separately consented, marketing messages about
                             seasonal specials and promotional offers.<br/>
@@ -173,19 +173,19 @@ export default function PrivacyPAge() {
                         <h2>12. How Can You Contact Us?</h2>
                         <p>If you have questions or comments about this notice, you may contact us by email or by post to:</p>
                         <div>
-                            <p>ARC DENTISTRY CORP</p>
+                            <p>Respect U Dental Laboratory</p>
                             <p>
                                 📍
-                                <a href="https://maps.google.com/?q=2681+North+Flamingo+RD+2506+S+Sunrise+Florida+33323"
+                                <a href="https://maps.google.com/?q=1+Woodside+Ave,+Brooklyn,+NY+11223"
                                    target="_blank"
                                    rel="noopener noreferrer"
                                 >
-                                    2681 North Flamingo RD 2506 S sunrise, Florida. 33323
+                                    1 Woodside Ave, Brooklyn, NY 11223
                                 </a>
                             </p>
-                            <p>📞 Phone: <a href="tel:17126421467">+1 (712) 642-1467</a></p>
-                            <p>✉️ Email: <a href="mailto:bookings@arc-dentistry.com" target="_blank">bookings@arc-dentistry.com</a></p>
-                            <p>🌐 Website: <a href="https://www.arc-dentistry.com" target="_blank"> https://www.arc-dentistry.com</a></p>
+                            <p>📞 Phone: <a href="tel:17182001535">+1 (718) 200-1535</a></p>
+                            <p>✉️ Email: <a href="mailto:contact@respectudental.com" target="_blank">contact@respectudental.com</a></p>
+                            <p>🌐 Website: <a href="https://respectudental.com" target="_blank"> https://respectudental.com</a></p>
                         </div>
                     </div>
                 </div>
