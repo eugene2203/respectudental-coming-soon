@@ -1,10 +1,22 @@
 import { z } from 'zod'
 
 export const contactFormSchema = z.object({
-  fullName: z
+  doctorName: z
     .string()
     .min(2, 'Name must be at least 2 characters')
     .max(100, 'Name must be less than 100 characters'),
+  clinicName: z
+      .string()
+      .min(2, 'Name must be at least 2 characters')
+      .max(100, 'Name must be less than 100 characters'),
+  phone: z
+      .string()
+      .min(2, 'Name must be at least 2 characters')
+      .max(100, 'Name must be less than 100 characters'),
+  department: z
+      .string()
+      .min(2, 'Name must be at least 2 characters')
+      .max(100, 'Name must be less than 100 characters'),
   email: z.string().email('Invalid email address'),
   message: z
     .string()

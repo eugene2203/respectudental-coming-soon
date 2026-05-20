@@ -1,0 +1,108 @@
+.form-group {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    margin-bottom: 8px;
+    font-size: 18px;
+    line-height: 28px;
+    color: #475569;
+    transition: all .3s;
+  }
+
+  input, textarea {
+    border-radius: 16px;
+    border: 1px solid #C0C5CC;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #475569;
+    background-color: transparent;
+    transition: all .3s;
+    &:focus {
+      border-color: #0F1A1D;
+      outline: none;
+    }
+    &:hover {
+      border-color: #475569;
+    }
+    &.error {
+      border-color: #B22020;
+      padding-right: 50px;
+    }
+  }
+
+  .error-message {
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 17px;
+    color: #B22020;
+  }
+}
+
+.form-dropdown__trigger {
+  cursor: pointer;
+
+  .error-icon {
+    right: 40px;
+  }
+}
+
+.form-dropdown__list {
+  border: 1px solid #9EB1CB;
+  border-radius: 16px;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  max-height: 240px;
+  margin: 0;
+  padding: 4px;
+  list-style: none;
+  background-color: #F8FAFC;
+  box-shadow:0 4px 16px 0 #00000029;;
+  overflow-y: auto;
+  z-index: 10;
+
+  li:not(:last-of-type) button {
+    margin-bottom: 8px;
+  }
+}
+
+.form-dropdown__item {
+  border-radius: 16px;
+  border: none;
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #0F1A1D;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all .2s;
+  &:hover {
+    color: #F8FAFC;
+    background-color: #18807A;
+  }
+}
+
+.error-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: #B22020;
+}
+
+.dropdown-icon {
+  top: 46px;
+  right: 10px;
+  font-size: 24px;
+  transform: rotate(90deg);
+  transition: all .2s;
+  &.opened {
+    transform: rotate(-90deg);
+  }
+}

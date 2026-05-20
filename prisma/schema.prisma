@@ -11,13 +11,16 @@ datasource db {
 }
 
 model ContactSubmission {
-  id        String   @id @default(cuid())
-  fullName  String   @map("full_name")
-  email     String
-  message   String   @db.Text
-  ipAddress String?  @map("ip_address")
-  userAgent String?  @map("user_agent") @db.Text
-  createdAt DateTime @default(now()) @map("created_at")
+  id            String   @id @default(cuid())
+  doctorName    String   @db.Text
+  clinicName    String
+  email         String
+  phone         String
+  department    String
+  message       String
+  ipAddress     String?  @map("ip_address")
+  userAgent     String?  @map("user_agent") @db.Text
+  createdAt     DateTime @default(now()) @map("created_at")
 
   @@index([createdAt])
   @@index([email])

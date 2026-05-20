@@ -4,109 +4,140 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { contactFormSchema, type ContactFormData } from '@/lib/validations'
 import { submitContactForm } from '@/actions/contact'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { useRecaptcha } from '@/lib/hooks/useRecaptcha'
+import FormField from "@/components/common/FormField";
+import FormDropdown, { type FormDropdownOption } from "@/components/common/FormDropdown";
+import {ContactFormValues} from "@/types";
+
+const departmentOptions: FormDropdownOption[] = [
+    { name: 'Crown & Bridge Department', value: 'crown-bridge' },
+    { name: 'Removable Department', value: 'removable' },
+    { name: 'Billing & Logistics Department', value: 'billing-logistics' },
+]
 
 export default function ContactForm() {
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitMessage, setSubmitMessage] = useState<{
-    type: 'success' | 'error'
-    text: string
-  } | null>(null)
+    const { executeRecaptcha } = useRecaptcha();
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitMessage, setSubmitMessage] = useState<{
+        type: 'success' | 'error'
+        text: string
+    } | null>(null);
+    const {
+        register,
+        handleSubmit,
+        setValue,
+        formState: { errors },
+        reset,
+    } = useForm<ContactFormData>({
+        resolver: zodResolver(contactFormSchema),
+    });
 
-  const { executeRecaptcha } = useRecaptcha()
+    const onSubmit = async (data: ContactFormData) => {
+        setIsSubmitting(true);
+        setSubmitMessage(null);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm<ContactFormData>({
-    resolver: zodResolver(contactFormSchema),
-  })
+        try {
+            // Execute reCAPTCHA
+            const recaptchaToken = await executeRecaptcha('contact_form');
+            const result = await submitContactForm(data, recaptchaToken);
 
-  const onSubmit = async (data: ContactFormData) => {
-    setIsSubmitting(true)
-    setSubmitMessage(null)
-
-    try {
-      // Execute reCAPTCHA
-      const recaptchaToken = await executeRecaptcha('contact_form')
-
-      const result = await submitContactForm(data, recaptchaToken)
-
-      if (result.success) {
-        setSubmitMessage({ type: 'success', text: result.message })
-        reset()
-      } else {
-        setSubmitMessage({
-          type: 'error',
-          text: result.error || 'Something went wrong',
-        })
-      }
-    } catch (error) {
-      setSubmitMessage({
-        type: 'error',
-        text: 'Failed to submit form. Please try again.',
-      })
-    } finally {
-      setIsSubmitting(false)
+            if (result.success) {
+                setSubmitMessage({ type: 'success', text: result.message });
+                reset();
+            } else {
+                setSubmitMessage({
+                    type: 'error',
+                    text: result.error || 'Something went wrong',
+                });
+            }
+        } catch (error) {
+            setSubmitMessage({
+                type: 'error',
+                text: 'Failed to submit form. Please try again.',
+            });
+        } finally {
+            setIsSubmitting(false);
+        }
     }
-  }
 
-  return (
-    <form onSubmit={handleSubmit(onSubmit)} className="contact-form">
-      <div className="form-group">
-        <label htmlFor="fullName">Full Name *</label>
-        <input
-          id="fullName"
-          type="text"
-          {...register('fullName')}
-          className={errors.fullName ? 'error' : ''}
-          disabled={isSubmitting}
-        />
-        {errors.fullName && (
-          <span className="error-message">{errors.fullName.message}</span>
-        )}
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="email">Email *</label>
-        <input
-          id="email"
-          type="email"
-          {...register('email')}
-          className={errors.email ? 'error' : ''}
-          disabled={isSubmitting}
-        />
-        {errors.email && (
-          <span className="error-message">{errors.email.message}</span>
-        )}
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="message">Message *</label>
-        <textarea
-          id="message"
-          rows={5}
-          {...register('message')}
-          className={errors.message ? 'error' : ''}
-          disabled={isSubmitting}
-        />
-        {errors.message && (
-          <span className="error-message">{errors.message.message}</span>
-        )}
-      </div>
-
-      {submitMessage && (
-        <div className={`submit-message ${submitMessage.type}`}>
-          {submitMessage.text}
-        </div>
-      )}
-
-      <button type="submit" disabled={isSubmitting} className="submit-button">
-        {isSubmitting ? 'Sending...' : 'Send Message'}
-      </button>
-    </form>
-  )
+    return (
+        <form onSubmit={handleSubmit(onSubmit)} className="contact-form">
+            <div className="xl:flex gap-2 mb-4">
+                <div className="xl:w-1/2">
+                    <FormField<ContactFormValues>
+                        id="doctorName"
+                        label="Doctor's Name"
+                        register={register}
+                        errors={errors}
+                        isSubmitting={isSubmitting}
+                    />
+                </div>
+                <div className="xl:w-1/2 mb-4">
+                    <FormField<ContactFormValues>
+                        id="clinicName"
+                        label="Clinic Name"
+                        register={register}
+                        errors={errors}
+                        isSubmitting={isSubmitting}
+                    />
+                </div>
+            </div>
+            <div className="xl:flex gap-2 mb-4">
+                <div className="xl:w-1/2">
+                    <FormField<ContactFormValues>
+                        id="email"
+                        type="email"
+                        label="Email Address"
+                        register={register}
+                        errors={errors}
+                        isSubmitting={isSubmitting}
+                    />
+                </div>
+                <div className="xl:w-1/2">
+                    <FormField<ContactFormValues>
+                        id="phone"
+                        label="Phone Number"
+                        register={register}
+                        errors={errors}
+                        isSubmitting={isSubmitting}
+                    />
+                </div>
+            </div>
+            <div className="mb-4">
+                <FormDropdown items={departmentOptions}
+                              onChange={(item) => {
+                                  setValue('department', item.name, {shouldValidate: true})
+                              }}
+                >
+                    <FormField<ContactFormValues>
+                        id="department"
+                        label="Select Department"
+                        placeholder={`General Inquiries / New Partner`}
+                        register={register}
+                        errors={errors}
+                        isSubmitting={isSubmitting}
+                        readOnly
+                    />
+                </FormDropdown>
+            </div>
+            <FormField<ContactFormValues>
+                id="message"
+                label="Your Message"
+                as="textarea"
+                rows={5}
+                register={register}
+                errors={errors}
+                isSubmitting={isSubmitting}
+            />
+            {submitMessage && (
+                <div className={`submit-message ${submitMessage.type}`}>
+                    {submitMessage.text}
+                </div>
+            )}
+            <button type="submit" disabled={isSubmitting} className="btn-main submit-button w-full mt-4">
+                {isSubmitting ? 'Sending...' : 'Send Message'}
+            </button>
+        </form>
+    )
 }

@@ -1,3 +1,15 @@
+h1 {
+  font-size: 34px;
+  line-height: 39px;
+  font-weight: bold;
+  color: #0F1A1D;
+
+  @media (min-width: 1280px) {
+    font-size: 48px;
+    line-height: 100%;
+  }
+}
+
 .container {
   max-width: 1295px;
   margin: 0 auto;
@@ -116,6 +128,14 @@
 
   @media (min-width: 1280px) {
     padding: 120px 0;
+  }
+}
+
+.section-padding-small {
+  padding: 36px 0;
+
+  @media (min-width: 1280px) {
+    padding: 64px 0;
   }
 }
 

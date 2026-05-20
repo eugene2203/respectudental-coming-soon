@@ -1,4 +1,10 @@
 import { Metadata } from "next";
+import BreadCrumbs from "@/components/common/BreadCrumbs";
+import ContactBanner from "@/components/contacts-page/ContactBanner";
+import FormBlock from "@/components/contacts-page/FormBlock";
+import ReachOutTabsBlock from "@/components/contacts-page/ReachOutTabsBlock";
+import MapBlock from "@/components/contacts-page/MapBlock";
+import QuestionsBlock from "@/components/contacts-page/QuestionsBlock";
 
 export const metadata: Metadata = {
   title: "Contact Us | Respect U Dental Lab - Brooklyn, NY | (718) 200-1532",
@@ -12,12 +18,15 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-[var(--light-bg)]">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold text-[var(--dark-blue)] mb-4">Contact Us</h1>
-        <p className="text-xl text-[var(--dark-blue)]">Need to be designed</p>
-      </div>
-    </div>
-  );
+
+    return (
+        <>
+            <BreadCrumbs page={'Contact Us'}/>
+            <ContactBanner/>
+            <FormBlock/>
+            <ReachOutTabsBlock/>
+            <MapBlock/>
+            <QuestionsBlock/>
+        </>
+    )
 }

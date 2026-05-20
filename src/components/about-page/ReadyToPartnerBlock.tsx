@@ -2,7 +2,7 @@ import React from "react";
 
 export default function ReadyToPartnerBlock() {
     return (
-        <section className="ready-to-partner-section">
+        <section className="ready-to-partner-section section-padding-small">
             <div className="container">
                 <div className="ready-to-partner text-center mx-auto">
                     <h2 className="mb-4">Ready to Partner With Us?</h2>

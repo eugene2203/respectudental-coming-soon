@@ -46,8 +46,11 @@ export async function submitContactForm(
     // Save to database
     await prisma.contactSubmission.create({
       data: {
-        fullName: validatedData.fullName,
+        doctorName: validatedData.doctorName,
+        clinicName: validatedData.clinicName,
         email: validatedData.email,
+        phone: validatedData.phone,
+        department: validatedData.department,
         message: validatedData.message,
         ipAddress: ip,
         userAgent,
@@ -60,12 +63,15 @@ export async function submitContactForm(
         await mg.messages.create(MAILGUN_DOMAIN, {
           from: MAILGUN_FROM,
           to: [ADMIN_EMAIL],
-          subject: `New Contact Form Submission from ${validatedData.fullName}`,
+          subject: `New Contact Form Submission from ${validatedData.doctorName}`,
           html: `
             <h2>New Contact Form Submission</h2>
-            <p><strong>Name:</strong> ${validatedData.fullName}</p>
-            <p><strong>Email:</strong> ${validatedData.email}</p>
-            <p><strong>Message:</strong></p>
+            <p><strong>doctorName:</strong> ${validatedData.doctorName}</p>
+            <p><strong>clinicName:</strong> ${validatedData.clinicName}</p>
+            <p><strong>email:</strong> ${validatedData.email}</p>
+            <p><strong>phone:</strong> ${validatedData.phone}</p>
+            <p><strong>department:</strong> ${validatedData.department}</p>
+            <p><strong>message:</strong> ${validatedData.message}</p>
             <p>${validatedData.message.replace(/\n/g, '<br>')}</p>
             <hr>
             <p><small>Submitted from IP: ${ip}</small></p>

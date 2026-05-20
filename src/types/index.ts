@@ -1,11 +1,23 @@
 export interface ContactSubmission {
   id: string
-  fullName: string
+  doctorName: string
+  clinicName: string
   email: string
+  phone: string
+  department: string
   message: string
   ipAddress?: string | null
   userAgent?: string | null
   createdAt: Date
+}
+
+export interface ContactFormValues {
+  doctorName: string;
+  clinicName: string;
+  phone: string;
+  department: string;
+  email: string;
+  message: string;
 }
 
 export interface OrderSubmission {

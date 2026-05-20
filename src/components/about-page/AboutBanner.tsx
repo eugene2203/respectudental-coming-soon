@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function AboutBanner() {
     return (
-        <section className="about-banner-section">
+        <section className="about-banner-section section-padding-small">
             <div className="container">
                 <div className="main-banner xl:flex items-center justify-between relative">
                     <div className="main-banner__left">
