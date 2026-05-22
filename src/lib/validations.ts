@@ -41,5 +41,28 @@ export const orderFormSchema = z.object({
     .max(2000, 'Order description must be less than 2000 characters'),
 })
 
+export const submitCaseFormSchema = z.object({
+  practiceName: z
+    .string()
+    .min(2, 'Practice name must be at least 2 characters')
+    .max(100, 'Practice name must be less than 100 characters'),
+  patientName: z
+    .string()
+    .min(2, 'Patient name must be at least 2 characters')
+    .max(100, 'Patient name must be less than 100 characters'),
+  rx: z.string().max(200, 'Rx must be less than 200 characters').optional(),
+  todayDate: z.string().max(50).optional(),
+  returnDate: z.string().max(50).optional(),
+  shade: z.string().max(100, 'Shade must be less than 100 characters').optional(),
+  involvedTeeth: z.array(z.string()),
+  fixedRestorationOptions: z.string().max(2000).optional(),
+  fixedSpecificInstructions: z.string().max(2000).optional(),
+  removableRestoration: z.string().max(2000).optional(),
+  removableSpecificInstructions: z.string().max(2000).optional(),
+  included: z.array(z.string()),
+  additionalInstructions: z.string().max(2000).optional(),
+})
+
 export type ContactFormData = z.infer<typeof contactFormSchema>
 export type OrderFormData = z.infer<typeof orderFormSchema>
+export type SubmitCaseFormData = z.infer<typeof submitCaseFormSchema>

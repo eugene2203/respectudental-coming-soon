@@ -45,12 +45,12 @@ export default function Header() {
                                 <a href="tel:7182001532" className="font-bold" target="_blank">(718) 200-1532</a>
                             </li>
                             <li>
-                                <button className="btn-main flex items-center xl:ml-4">
+                                <Link href={`/submit-case`} className="btn-main flex items-center xl:ml-4">
                                     Submit the Case
                                     <svg className="svg-icon ml-2">
                                         <use xlinkHref="/images/sprite.svg#arrow-icon"></use>
                                     </svg>
-                                </button>
+                                </Link>
                             </li>
                         </ul>
                     </div>

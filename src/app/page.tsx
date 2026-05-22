@@ -1,7 +1,7 @@
-import MainBanner from "@/components/main-page/MainBanner";
-import MainLaboratoryBlock from "@/components/main-page/MainLaboratoryBlock";
-import AreasOfExpertiseBlock from "@/components/main-page/AreasOfExpertiseBlock";
-import TechnologiesAndMaterials from "@/components/main-page/TechnologiesAndMaterials";
+import MainBanner from "@/components/pages/main-page/MainBanner";
+import MainLaboratoryBlock from "@/components/pages/main-page/MainLaboratoryBlock";
+import AreasOfExpertiseBlock from "@/components/pages/main-page/AreasOfExpertiseBlock";
+import TechnologiesAndMaterials from "@/components/pages/main-page/TechnologiesAndMaterials";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

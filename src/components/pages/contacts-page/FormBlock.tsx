@@ -1,5 +1,5 @@
 import React from "react";
-import ContactInfo from "@/components/contacts-page/ContactInfo";
+import ContactInfo from "@/components/pages/contacts-page/ContactInfo";
 import ContactForm from "@/components/forms/ContactForm";
 
 export default function FormBlock() {

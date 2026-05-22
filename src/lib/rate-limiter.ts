@@ -13,6 +13,11 @@ export const orderFormLimiter = new RateLimiterMemory({
   duration: Math.ceil(windowMs / 1000),
 })
 
+export const submitCaseFormLimiter = new RateLimiterMemory({
+  points: maxRequests,
+  duration: Math.ceil(windowMs / 1000),
+})
+
 export async function checkRateLimit(
   limiter: RateLimiterMemory,
   key: string

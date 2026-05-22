@@ -44,3 +44,26 @@ model OrderSubmission {
   @@index([emailSent])
   @@map("order_submissions")
 }
+
+model CaseSubmission {
+  id                            String   @id @default(cuid())
+  practiceName                  String   @map("practice_name")
+  patientName                   String   @map("patient_name")
+  rx                            String?  @db.VarChar(200)
+  todayDate                     String?  @map("today_date") @db.VarChar(50)
+  returnDate                    String?  @map("return_date") @db.VarChar(50)
+  shade                         String?  @db.VarChar(100)
+  involvedTeeth                 Json     @map("involved_teeth")
+  fixedRestorationOptions       String?  @map("fixed_restoration_options") @db.Text
+  fixedSpecificInstructions     String?  @map("fixed_specific_instructions") @db.Text
+  removableRestoration          String?  @map("removable_restoration") @db.Text
+  removableSpecificInstructions String?  @map("removable_specific_instructions") @db.Text
+  included                      Json
+  additionalInstructions        String?  @map("additional_instructions") @db.Text
+  ipAddress                     String?  @map("ip_address")
+  userAgent                     String?  @map("user_agent") @db.Text
+  createdAt                     DateTime @default(now()) @map("created_at")
+
+  @@index([createdAt])
+  @@map("case_submissions")
+}

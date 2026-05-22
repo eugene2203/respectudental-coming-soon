@@ -1,5 +1,5 @@
 import React from "react";
-import FaqItem from "@/components/contacts-page/FaqItem";
+import FaqItem from "@/components/pages/contacts-page/FaqItem";
 
 type FaqItemData = {
     title: string;

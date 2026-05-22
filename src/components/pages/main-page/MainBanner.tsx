@@ -1,5 +1,6 @@
 import React from "react";
 import Image from 'next/image';
+import Link from "next/link";
 
 export default function MainBanner() {
     return (
@@ -22,12 +23,12 @@ export default function MainBanner() {
                         />
                     </div>
                     <div className="banner-buttons xl:flex items-center mt-4 xl:mt-0 gap-3" style={{bottom: '70px'}}>
-                        <button className="btn-main flex items-center justify-center">
+                        <Link href={`/submit-case`} className="btn-main flex items-center justify-center">
                             Submit the Case
                             <svg className="svg-icon ml-2">
                                 <use xlinkHref="/images/sprite.svg#arrow-icon"></use>
                             </svg>
-                        </button>
+                        </Link>
                         <button className="btn-default">Our Services</button>
                     </div>
                 </div>

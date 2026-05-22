@@ -1,9 +1,9 @@
 import BreadCrumbs from "@/components/common/BreadCrumbs";
-import AboutBanner from "@/components/about-page/AboutBanner";
-import MissionBlock from "@/components/about-page/MissionBlock";
-import AboutLaboratoryBlock from "@/components/about-page/AboutLaboratoryBlock";
-import TeamBlock from "@/components/about-page/TeamBlock";
-import ReadyToPartnerBlock from "@/components/about-page/ReadyToPartnerBlock";
+import AboutBanner from "@/components/pages/about-page/AboutBanner";
+import MissionBlock from "@/components/pages/about-page/MissionBlock";
+import AboutLaboratoryBlock from "@/components/pages/about-page/AboutLaboratoryBlock";
+import TeamBlock from "@/components/pages/about-page/TeamBlock";
+import ReadyToPartnerBlock from "@/components/pages/about-page/ReadyToPartnerBlock";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

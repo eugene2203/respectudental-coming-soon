@@ -1,10 +1,10 @@
 import { Metadata } from "next";
 import BreadCrumbs from "@/components/common/BreadCrumbs";
-import ContactBanner from "@/components/contacts-page/ContactBanner";
-import FormBlock from "@/components/contacts-page/FormBlock";
-import ReachOutTabsBlock from "@/components/contacts-page/ReachOutTabsBlock";
-import MapBlock from "@/components/contacts-page/MapBlock";
-import QuestionsBlock from "@/components/contacts-page/QuestionsBlock";
+import ContactBanner from "@/components/pages/contacts-page/ContactBanner";
+import FormBlock from "@/components/pages/contacts-page/FormBlock";
+import ReachOutTabsBlock from "@/components/pages/contacts-page/ReachOutTabsBlock";
+import MapBlock from "@/components/pages/contacts-page/MapBlock";
+import QuestionsBlock from "@/components/pages/contacts-page/QuestionsBlock";
 
 export const metadata: Metadata = {
   title: "Contact Us | Respect U Dental Lab - Brooklyn, NY | (718) 200-1532",

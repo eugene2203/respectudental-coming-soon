@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import LogosBlock from "../main-page/LogosBlock";
+import LogosBlock from "@/components/pages/main-page/LogosBlock";
 
 export default function AboutLaboratoryBlock() {
     return (

@@ -20,6 +20,18 @@ export interface ContactFormValues {
   message: string;
 }
 
+export interface SubmitCaseFormValues {
+  practiceName: string;
+  patientName: string;
+  involvedTeeth: string[];
+  fixedRestorationOptions?: string;
+  fixedSpecificInstructions?: string;
+  removableRestoration?: string;
+  removableSpecificInstructions?: string;
+  included: string[];
+  additionalInstructions?: string;
+}
+
 export interface OrderSubmission {
   id: string
   clientName: string
