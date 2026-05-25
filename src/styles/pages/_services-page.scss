@@ -1,0 +1,129 @@
+.services-banner {
+  &.about-banner-section .main-banner__right img {
+    transform: none;
+  }
+
+  .years-of-experience {
+    @media (min-width: 1280px) {
+      max-width: 300px;
+      left: -50px;
+      bottom: -40px
+    }
+  }
+}
+
+.specializations-section {
+  .expertise-wrap {
+    @media (max-width: 1279px) {
+      max-height: 1000px;
+      overflow: hidden;
+      &.shown {
+        max-height: unset;
+        overflow: visible;
+
+        .show-all-btn .svg-icon {
+          transform: rotate(-90deg);
+        }
+      }
+    }
+  }
+  .expertise-card {
+    border: 1px solid #E2E8F0;
+
+    @media (min-width: 1280px) {
+      width: 32%;
+    }
+  }
+}
+
+.show-all-btn {
+  border: 1px solid #C0C5CC;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px;
+  color: #0F1A1D;
+  font-weight: 600;
+  background-color: #fff;
+  box-shadow: 0 -24px 24px 0px #FFFFFFBF;
+  z-index: 2;
+  cursor: pointer;
+
+  .svg-icon {
+    transform: rotate(90deg);
+  }
+}
+
+.workflow-items {
+  &__item {
+    border-radius: 16px;
+    border: 1px solid #C0C5CC;
+    padding: 24px;
+    background-color: #F8FAFC;
+
+    h4 {
+      font-size: 48px;
+      line-height: 100%;
+      font-weight: bold;
+    }
+
+    h5 {
+      font-size: 21px;
+      line-height: 24px;
+      font-weight: bold;
+    }
+  }
+}
+
+.microscopic-control-section {
+  color: #fff;
+  background-color: #0F1A1D;
+}
+
+.microscopic-control-icon-block {
+  > div:first-of-type {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border: 1px solid #14B8A633;
+    background-color: #14B8A61A;
+
+    .svg-icon {
+      font-size: 24px;
+      color: #20B2AA;
+    }
+  }
+
+  h5 {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.microscopic-control-quote-block {
+  border: 1px solid #FFFFFF1A;
+  border-radius: 24px;
+  padding: 24px 32px;
+  background-color: #FFFFFF0D;
+
+  h4 {
+    font-size: 48px;
+    line-height: 100%;
+    font-weight: bold;
+    color: #20B2AA;
+  }
+
+  h5 {
+    font-size: 21px;
+    line-height: 24px;
+    font-weight: bold;
+  }
+}

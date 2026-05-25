@@ -40,7 +40,7 @@ h1 {
   }
 }
 
-.btn-main, .btn-default {
+.btn-main, .btn-default, .btn-black {
   border-radius: 4px;
   padding: 16px;
   font-size: 16px;
@@ -59,10 +59,24 @@ h1 {
   }
 }
 
+.btn-black {
+  border: 1px solid #475569;
+  color: #fff;
+  background-color: #0F1A1D;
+  &:hover {
+    color: #0F1A1D;
+    background-color: #fff;
+  }
+}
+
 .btn-default {
   border: 1px solid #C0C5CC;
   color: #1E293B;
   background-color: #fff;
+  &:hover {
+    color: #FFFFFF;
+    background-color: #18807A;
+  }
 }
 
 .sticker-item {

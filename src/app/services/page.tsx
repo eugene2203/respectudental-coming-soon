@@ -1,4 +1,10 @@
 import { Metadata } from "next";
+import BreadCrumbs from "@/components/common/BreadCrumbs";
+import ServicesBanner from "@/components/pages/services-page/ServicesBanner";
+import SpecializationsBlock from "@/components/pages/services-page/SpecializationsBlock";
+import WorkflowBlock from "@/components/pages/services-page/WorkflowBlock";
+import TestBlock from "@/components/pages/services-page/TestBlock";
+import MicroscopicControlBlock from "@/components/pages/services-page/MicroscopicControlBlock";
 
 export const metadata: Metadata = {
   title: "Dental Lab Services | Crowns, Implants, Bridges & Dentures - Brooklyn NY",
@@ -12,12 +18,15 @@ export const metadata: Metadata = {
 };
 
 export default function ServicesPage() {
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-[var(--light-bg)]">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold text-[var(--dark-blue)] mb-4">Our Services</h1>
-        <p className="text-xl text-[var(--dark-blue)]">Need to be designed</p>
-      </div>
-    </div>
-  );
+
+    return (
+        <>
+            <BreadCrumbs page={'Our Services'}/>
+            <ServicesBanner/>
+            <SpecializationsBlock/>
+            <WorkflowBlock/>
+            <MicroscopicControlBlock/>
+            <TestBlock/>
+        </>
+    )
 }

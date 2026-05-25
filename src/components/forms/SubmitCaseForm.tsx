@@ -208,9 +208,8 @@ export default function SubmitCaseForm() {
                         <p className="form-checkbox-group__title">Included</p>
                         <div className="flex flex-wrap">
                             {INCLUDED_OPTIONS.map((item) => (
-                                <div className="w-1/2">
+                                <div key={item.value} className="w-1/2">
                                     <FormCheckbox<SubmitCaseFormData>
-                                        key={item.value}
                                         id="included"
                                         value={item.value}
                                         label={item.label}
