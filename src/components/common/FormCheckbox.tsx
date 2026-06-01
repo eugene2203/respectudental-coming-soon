@@ -3,20 +3,35 @@ import {
     FieldErrors,
     FieldValues,
     Path,
+    PathValue,
+    RegisterOptions,
     UseFormRegister,
 } from "react-hook-form";
 
-interface FormCheckboxProps<T extends FieldValues> {
-    id: Path<T>;
+type CheckboxFieldValue<
+    T extends FieldValues,
+    TName extends Path<T>,
+> = PathValue<T, TName> extends ReadonlyArray<infer Item>
+    ? Item
+    : PathValue<T, TName>;
+
+interface FormCheckboxProps<
+    T extends FieldValues,
+    TName extends Path<T> = Path<T>,
+> {
+    id: TName;
     label: string;
-    value?: string;
+    value?: CheckboxFieldValue<T, TName>;
     labelPosition?: "top" | "bottom";
     register: UseFormRegister<T>;
     errors: FieldErrors<T>;
     isSubmitting?: boolean;
 }
 
-export default function FormCheckbox<T extends FieldValues>({
+export default function FormCheckbox<
+    T extends FieldValues,
+    TName extends Path<T> = Path<T>,
+>({
     id,
     label,
     value,
@@ -24,10 +39,12 @@ export default function FormCheckbox<T extends FieldValues>({
     register,
     errors,
     isSubmitting = false,
-}: FormCheckboxProps<T>) {
+}: FormCheckboxProps<T, TName>) {
     const error = errors[id];
     const registerProps =
-        value !== undefined ? register(id, { value }) : register(id);
+        value !== undefined
+            ? register(id, { value } as RegisterOptions<T, TName>)
+            : register(id);
 
     const labelClassName = [
         "form-checkbox__label",
