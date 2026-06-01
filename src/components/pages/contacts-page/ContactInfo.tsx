@@ -15,7 +15,7 @@ export default function ContactInfo() {
             id: 1,
             title: 'Laboratory Address',
             icon: 'address-marker',
-            link: 'https://www.google.com/maps/search/?api=1&amp;query=1+Woodside+Ave+Brooklyn+NY+11223',
+            link: 'https://www.google.com/maps/place/1+Woodside+Ave,+Brooklyn,+NY+11223',
             text1: '1 Woodside Ave, Brooklyn, NY 11223',
             text2: 'View on map',
         },

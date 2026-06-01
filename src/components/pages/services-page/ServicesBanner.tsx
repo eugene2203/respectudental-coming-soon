@@ -1,5 +1,6 @@
 import React from "react";
 import Image from 'next/image';
+import Link from "next/link";
 
 export default function ServicesBanner() {
     return (
@@ -36,9 +37,12 @@ export default function ServicesBanner() {
                             </svg>
                             <span> Download Price List (PDF)</span>
                         </div>
-                        <div className="btn-default flex items-center">
-                            <span>Contact the Lab</span>
-                        </div>
+                        <Link href={`/contact`} className="btn-default flex items-center justify-center">
+                            Contact the Lab
+                        </Link>
+                        {/*<div className="btn-default flex items-center">*/}
+                        {/*    <span>Contact the Lab</span>*/}
+                        {/*</div>*/}
                     </div>
                 </div>
             </div>

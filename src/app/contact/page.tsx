@@ -24,7 +24,7 @@ export default function ContactPage() {
             <BreadCrumbs page={'Contact Us'}/>
             <ContactBanner/>
             <FormBlock/>
-            <ReachOutTabsBlock/>
+            {/*<ReachOutTabsBlock/>*/}
             <MapBlock/>
             <QuestionsBlock/>
         </>
