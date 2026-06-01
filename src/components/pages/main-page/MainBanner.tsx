@@ -29,7 +29,12 @@ export default function MainBanner() {
                                 <use xlinkHref="/images/sprite.svg#arrow-icon"></use>
                             </svg>
                         </Link>
-                        <button className="btn-default">Our Services</button>
+                        <Link href={`/services`} className="btn-default flex items-center justify-center">
+                            Our Services
+                            <svg className="svg-icon ml-2">
+                                <use xlinkHref="/images/sprite.svg#arrow-icon"></use>
+                            </svg>
+                        </Link>
                     </div>
                 </div>
             </div>
