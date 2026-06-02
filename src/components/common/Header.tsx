@@ -21,7 +21,7 @@ export default function Header() {
                 <div className="flex items-center justify-between">
                     <div className="header-logo relative">
                         {pathname !== '/' &&
-                            <Link href="/" className="fake-link-block"></Link>
+                            <Link href="/" className="fake-link-block" onClick={() => setShowMobileMenu(false)}></Link>
                         }
                         <svg className="svg-icon">
                             <use xlinkHref="/images/sprite.svg#logo-icon"></use>
@@ -37,7 +37,7 @@ export default function Header() {
                             {menuList.map((item, i) => {
                                 return (
                                     <li key={`header-menu-${i}`}>
-                                        <Link href={item.link} className="font-medium">{item.name}</Link>
+                                        <Link href={item.link} className="font-medium" onClick={() => setShowMobileMenu(false)}>{item.name}</Link>
                                     </li>
                                 )
                             })}
@@ -45,7 +45,7 @@ export default function Header() {
                                 <a href="tel:7182001532" className="font-bold" target="_blank">(718) 200-1532</a>
                             </li>
                             <li>
-                                <Link href={`/submit-case`} className="btn-main flex items-center xl:ml-4">
+                                <Link href={`/submit-case`} className="btn-main flex items-center xl:ml-4" onClick={() => setShowMobileMenu(false)}>
                                     Submit the Case
                                     <svg className="svg-icon ml-2">
                                         <use xlinkHref="/images/sprite.svg#arrow-icon"></use>
