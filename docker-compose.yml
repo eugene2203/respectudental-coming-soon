@@ -37,7 +37,8 @@ services:
       - .env
     volumes:
       - ./tmp:/app/tmp
-      - ./public:/app/public
+      # Don't mount public in production - it's already in the image
+      # - ./public:/app/public
     depends_on:
       db:
         condition: service_healthy
