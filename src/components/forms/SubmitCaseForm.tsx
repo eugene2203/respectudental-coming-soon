@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { submitCaseFormSchema, type SubmitCaseFormData } from '@/lib/validations'
 import { submitCaseForm } from '@/actions/submit-case'
+import { generateSubmitCasePDF } from '@/actions/generate-pdf'
 import { useRecaptcha } from '@/lib/hooks/useRecaptcha'
 import FormField from '@/components/common/FormField'
 import FormCheckbox from '@/components/common/FormCheckbox'
@@ -17,6 +18,7 @@ import {
 export default function SubmitCaseForm() {
     const { executeRecaptcha } = useRecaptcha()
     const [isSubmitting, setIsSubmitting] = useState(false)
+    const [isGeneratingPDF, setIsGeneratingPDF] = useState(false)
     const [submitMessage, setSubmitMessage] = useState<{
         type: 'success' | 'error'
         text: string
@@ -27,6 +29,7 @@ export default function SubmitCaseForm() {
         handleSubmit,
         formState: { errors },
         reset,
+        getValues,
     } = useForm<SubmitCaseFormData>({
         resolver: zodResolver(submitCaseFormSchema),
         defaultValues: {
@@ -60,6 +63,37 @@ export default function SubmitCaseForm() {
             })
         } finally {
             setIsSubmitting(false)
+        }
+    }
+
+    const handleDownloadPDF = async () => {
+        setIsGeneratingPDF(true)
+        setSubmitMessage(null)
+
+        try {
+            // Get current form data from react-hook-form
+            const formData = getValues()
+
+            // Generate PDF on server with form data
+            const result = await generateSubmitCasePDF(formData)
+
+            if (result.success && result.pdfPath) {
+                // Trigger download
+                const fileName = result.pdfPath.split('/').pop()
+                window.location.href = `/api/download-pdf?file=${fileName}`
+            } else {
+                setSubmitMessage({
+                    type: 'error',
+                    text: result.error || 'Failed to generate PDF',
+                })
+            }
+        } catch {
+            setSubmitMessage({
+                type: 'error',
+                text: 'Failed to generate PDF. Please try again.',
+            })
+        } finally {
+            setIsGeneratingPDF(false)
         }
     }
 
@@ -247,9 +281,23 @@ export default function SubmitCaseForm() {
                             {submitMessage.text}
                         </div>
                     )}
-                    <button type="submit" disabled={isSubmitting} className="btn-main submit-button w-full mt-8">
-                        {isSubmitting ? 'Sending...' : 'Submit Case'}
-                    </button>
+                    <div className="flex flex-col sm:flex-row gap-4 mt-8">
+                        <button
+                            type="button"
+                            onClick={handleDownloadPDF}
+                            disabled={isGeneratingPDF || isSubmitting}
+                            className="btn-main submit-button w-full sm:w-1/2"
+                        >
+                            {isGeneratingPDF ? 'Generating PDF...' : 'Download PDF'}
+                        </button>
+                        <button
+                            type="submit"
+                            disabled={isSubmitting || isGeneratingPDF}
+                            className="btn-main submit-button w-full sm:w-1/2"
+                        >
+                            {isSubmitting ? 'Sending...' : 'Submit Case'}
+                        </button>
+                    </div>
                 </form>
             </div>
         </section>

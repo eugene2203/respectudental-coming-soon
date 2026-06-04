@@ -1,25 +1,4 @@
 services:
-  db:
-    image: mariadb:11.6
-    container_name: respectudental_db_t
-    restart: unless-stopped
-    environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-rootpassword}
-      MYSQL_DATABASE: ${MYSQL_DATABASE:-respectudental}
-      MYSQL_USER: ${MYSQL_USER:-user}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-password}
-    ports:
-      - "3309:3306"
-    volumes:
-      - db_data:/var/lib/mysql
-    networks:
-      - respectudental_network_t
-    healthcheck:
-      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-
   app:
     build:
       context: .
@@ -30,39 +9,10 @@ services:
       - "0.0.0.0:3311:3000"
     environment:
       - NODE_ENV=production
-      - DATABASE_URL=mysql://${MYSQL_USER:-user}:${MYSQL_PASSWORD:-password}@db:3306/${MYSQL_DATABASE:-respectudental}
-      - PRISMA_QUERY_ENGINE_LIBRARY=/usr/lib/libssl.so.3
-      - PRISMA_CLI_QUERY_ENGINE_TYPE=library
     env_file:
       - .env
     volumes:
       - ./tmp:/app/tmp
       # Don't mount public in production - it's already in the image
       # - ./public:/app/public
-    depends_on:
-      db:
-        condition: service_healthy
-    networks:
-      - respectudental_network_t
     command: sh -c "node server.js"
-
-  adminer:
-    image: adminer:latest
-    container_name: respectudental_adminer_t
-    restart: unless-stopped
-    ports:
-      - "8081:8080"
-    environment:
-      ADMINER_DEFAULT_SERVER: db
-    depends_on:
-      - db
-    networks:
-      - respectudental_network_t
-
-volumes:
-  db_data:
-    driver: local
-
-networks:
-  respectudental_network_t:
-    driver: bridge

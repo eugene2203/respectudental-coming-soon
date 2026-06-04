@@ -6,15 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "migrate": "prisma migrate deploy"
+    "lint": "eslint"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
-    "@prisma/client": "^5.22.0",
-    "mailgun.js": "^13.0.1",
     "next": "16.2.6",
-    "prisma": "^5.22.0",
     "puppeteer": "^24.43.1",
     "rate-limiter-flexible": "^5.0.3",
     "react": "19.2.4",

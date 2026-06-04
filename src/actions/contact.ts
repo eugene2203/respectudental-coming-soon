@@ -1,9 +1,7 @@
 'use server'
 
 import { contactFormSchema, type ContactFormData } from '@/lib/validations'
-import { prisma } from '@/lib/prisma'
 import { checkRateLimit, contactFormLimiter } from '@/lib/rate-limiter'
-import { mg, MAILGUN_DOMAIN, MAILGUN_FROM, ADMIN_EMAIL } from '@/lib/mailgun'
 import { verifyRecaptcha } from '@/lib/recaptcha'
 import { headers } from 'next/headers'
 import type { FormResponse } from '@/types'
@@ -31,7 +29,6 @@ export async function submitContactForm(
     // Get client IP for rate limiting
     const headersList = await headers()
     const ip = headersList.get('x-forwarded-for') || 'unknown'
-    const userAgent = headersList.get('user-agent') || undefined
 
     // Check rate limit
     const rateLimitResult = await checkRateLimit(contactFormLimiter, ip)
@@ -43,45 +40,15 @@ export async function submitContactForm(
       }
     }
 
-    // Save to database
-    await prisma.contactSubmission.create({
-      data: {
-        doctorName: validatedData.doctorName,
-        clinicName: validatedData.clinicName,
-        email: validatedData.email,
-        phone: validatedData.phone,
-        department: validatedData.department,
-        message: validatedData.message,
-        ipAddress: ip,
-        userAgent,
-      },
+    // Log submission (without database)
+    console.log('Contact form submission:', {
+      doctorName: validatedData.doctorName,
+      clinicName: validatedData.clinicName,
+      email: validatedData.email,
+      phone: validatedData.phone,
+      department: validatedData.department,
+      ip,
     })
-
-    // Send email notification to admin
-    if (MAILGUN_API_KEY && MAILGUN_DOMAIN && ADMIN_EMAIL) {
-      try {
-        await mg.messages.create(MAILGUN_DOMAIN, {
-          from: MAILGUN_FROM,
-          to: [ADMIN_EMAIL],
-          subject: `New Contact Form Submission from ${validatedData.doctorName}`,
-          html: `
-            <h2>New Contact Form Submission</h2>
-            <p><strong>doctorName:</strong> ${validatedData.doctorName}</p>
-            <p><strong>clinicName:</strong> ${validatedData.clinicName}</p>
-            <p><strong>email:</strong> ${validatedData.email}</p>
-            <p><strong>phone:</strong> ${validatedData.phone}</p>
-            <p><strong>department:</strong> ${validatedData.department}</p>
-            <p><strong>message:</strong> ${validatedData.message}</p>
-            <p>${validatedData.message.replace(/\n/g, '<br>')}</p>
-            <hr>
-            <p><small>Submitted from IP: ${ip}</small></p>
-          `,
-        })
-      } catch (emailError) {
-        console.error('Failed to send email:', emailError)
-        // Don't fail the submission if email fails
-      }
-    }
 
     return {
       success: true,
@@ -96,5 +63,3 @@ export async function submitContactForm(
     }
   }
 }
-
-const MAILGUN_API_KEY = process.env.MAILGUN_API_KEY

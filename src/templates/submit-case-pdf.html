@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Prosthetics Rx</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4 landscape;
+            margin: 1cm;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            font-size: 12px;
+            line-height: 1.5;
+            color: #0F1A1D;
+            background: white;
+        }
+
+        .pdf-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Header with 3 columns */
+        .header {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            padding-bottom: 8px;
+            margin-bottom: 4px;
+            border-bottom: 2px solid #18807A;
+        }
+
+        .header-column {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .logo {
+            max-width: 270px;
+            height: auto;
+        }
+
+        .contact-info {
+            font-size: 11px;
+            line-height: 1.6;
+        }
+
+        .contact-info div {
+            margin-bottom: 4px;
+        }
+
+        .contact-info strong {
+            color: #0F1A1D;
+            font-weight: 600;
+        }
+
+        .patient-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .patient-info-field {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .patient-info-label {
+            font-size: 10px;
+            font-weight: 600;
+            color: #475569;
+            text-transform: uppercase;
+        }
+
+        .patient-info-value {
+            font-size: 13px;
+            font-weight: 600;
+            color: #0F1A1D;
+            padding: 6px 10px;
+            border: 1px solid #C0C5CC;
+            border-radius: 6px;
+            background: #F8FAFC;
+            min-height: 28px;
+        }
+
+        /* 4-column row under header */
+        .details-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            padding: 6px 0;
+            margin-bottom: 4px;
+       }
+
+        .details-field {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .details-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: #0F1A1D;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .details-value {
+            flex: 1;
+            font-size: 12px;
+            color: #0F1A1D;
+            padding: 6px 10px;
+            background: white;
+            border: 1px solid #C0C5CC;
+            border-radius: 4px;
+            min-height: 28px;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+            margin-top: 8px;
+        }
+
+        .section {
+            background: #F8FAFC;
+            border: 1px solid #C0C5CC;
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        .section.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .section-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #0F1A1D;
+            margin-bottom: 10px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #C0C5CC;
+        }
+
+        .subsection {
+            margin-bottom: 10px;
+        }
+
+        .subsection:last-child {
+            margin-bottom: 0;
+        }
+
+        .subsection-label {
+            font-size: 10px;
+            font-weight: 600;
+            color: #475569;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .field-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .field-label {
+            font-size: 9px;
+            font-weight: 600;
+            color: #475569;
+            text-transform: uppercase;
+        }
+
+        .field-value {
+            font-size: 11px;
+            color: #0F1A1D;
+            padding: 4px 8px;
+            background: white;
+            border: 1px solid #C0C5CC;
+            border-radius: 4px;
+            min-height: 24px;
+        }
+
+        .textarea-value {
+            font-size: 11px;
+            color: #0F1A1D;
+            padding: 8px;
+            background: white;
+            border: 1px solid #C0C5CC;
+            border-radius: 4px;
+            min-height: 60px;
+            white-space: pre-wrap;
+            line-height: 1.5;
+        }
+
+        .textarea-value.small {
+            min-height: 40px;
+            font-size: 10px;
+        }
+
+        /* Teeth Checkboxes */
+        .checkbox-grid {
+            margin-top: 8px;
+        }
+
+        .checkbox-title {
+            font-size: 11px;
+            font-weight: 600;
+            color: #0F1A1D;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .checkbox-row {
+            display: grid;
+            grid-template-columns: repeat(16, 1fr);
+            gap: 3px;
+            margin-bottom: 2px;
+        }
+
+        .checkbox-row.upper {
+            border-bottom: 2px solid #18807A;
+            padding-bottom: 3px;
+            margin-bottom: 3px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .checkbox-item.label-top .checkbox-label {
+            order: -1;
+        }
+
+        .checkbox-label {
+            font-size: 9px;
+            color: #0F1A1D;
+            background-color: #E0E0E0;
+            padding: 2px 3px;
+            text-align: center;
+            width: 100%;
+            min-height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 2px;
+        }
+
+        .checkbox {
+            width: 14px;
+            height: 14px;
+            border: 2px solid #18807A;
+            border-radius: 3px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            background: white;
+        }
+
+        .checkbox.checked {
+            background-color: #18807A;
+        }
+
+        .checkbox.checked::after {
+            content: '✓';
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        /* Included Checkboxes */
+        .checkbox-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .checkbox-list-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 6px;
+            padding: 4px 6px;
+            border: 1px solid #B27F20;
+            border-radius: 6px;
+            background-color: #FFF9E6;
+            font-size: 9px;
+            color: #475569;
+            line-height: 1.5;
+        }
+
+        .footer strong {
+            color: #B27F20;
+        }
+    </style>
+</head>
+<body>
+    <div class="pdf-container">
+        <!-- Header: Logo | Contact | Patient Info -->
+        <div class="header">
+            <!-- Column 1: Logo -->
+            <div class="header-column">
+                <img src="{{logoBase64}}" alt="Respect U Dental Lab" class="logo">
+            </div>
+
+            <!-- Column 2: Contact Info -->
+            <div class="header-column contact-info">
+                <div><strong>Address:</strong> 1601 Avenue M, Brooklyn, NY 11230</div>
+                <div><strong>Phone:</strong> (718) 200-1532</div>
+                <div><strong>Email:</strong> respectudental@gmail.com</div>
+            </div>
+
+            <!-- Column 3: Patient Info -->
+            <div class="header-column patient-info">
+                <div class="patient-info-field">
+                    <span class="patient-info-label">Practice name:</span>
+                    <div class="patient-info-value">{{practiceName}}</div>
+                </div>
+                <div class="patient-info-field">
+                    <span class="patient-info-label">Patient name:</span>
+                    <div class="patient-info-value">{{patientName}}</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4-column Details Row -->
+        <div class="details-row">
+            <div class="details-field">
+                <span class="details-label">Rx:</span>
+                <div class="details-value">{{rx}}</div>
+            </div>
+            <div class="details-field">
+                <span class="details-label">Today Date:</span>
+                <div class="details-value">{{todayDate}}</div>
+            </div>
+            <div class="details-field">
+                <span class="details-label">Return Date:</span>
+                <div class="details-value">{{returnDate}}</div>
+            </div>
+            <div class="details-field">
+                <span class="details-label">Shade:</span>
+                <div class="details-value">{{shade}}</div>
+            </div>
+        </div>
+
+        <!-- Teeth Selection (Full Width) -->
+        <div class="section full-width">
+            <div class="section-title">Tooth Selection</div>
+            <div class="checkbox-grid">
+                <div class="checkbox-title">Circle involved teeth</div>
+                <div class="checkbox-row upper">
+                    {{involvedTeethUpperCheckboxes}}
+                </div>
+                <div class="checkbox-row lower">
+                    {{involvedTeethLowerCheckboxes}}
+                </div>
+            </div>
+        </div>
+
+        <!-- Fixed & Removable Restoration (2 columns) -->
+        <div class="content-grid">
+            <!-- Fixed Restoration Card -->
+            <div class="section">
+                <div class="section-title">Fixed Restoration</div>
+                <div class="subsection">
+                    <div class="subsection-label">Options:</div>
+                    <div class="textarea-value small">{{fixedRestorationOptions}}</div>
+                </div>
+                <div class="subsection">
+                    <div class="subsection-label">Specific Instructions:</div>
+                    <div class="textarea-value small">{{fixedSpecificInstructions}}</div>
+                </div>
+            </div>
+
+            <!-- Removable Restoration Card -->
+            <div class="section">
+                <div class="section-title">Removable Restoration</div>
+                <div class="subsection">
+                    <div class="subsection-label">Options:</div>
+                    <div class="textarea-value small">{{removableRestoration}}</div>
+                </div>
+                <div class="subsection">
+                    <div class="subsection-label">Specific Instructions:</div>
+                    <div class="textarea-value small">{{removableSpecificInstructions}}</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Included & Additional Instructions -->
+        <div class="content-grid">
+            <!-- Included Items -->
+            <div class="section">
+                <div class="section-title">Included</div>
+                <div class="checkbox-list">
+                    {{includedCheckboxes}}
+                </div>
+            </div>
+
+            <!-- Additional Instructions -->
+            <div class="section">
+                <div class="section-title">Additional Instructions</div>
+                <div class="textarea-value">{{additionalInstructions}}</div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <strong>**Laboratory Liability:</strong> Respect U Dental Laboratory is not responsible for errors resulting from clinical techniques, impressions, or improper models provided by the clinician. All work is custom made and non-refundable.
+        </div>
+    </div>
+</body>
+</html>

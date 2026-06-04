@@ -59,6 +59,7 @@ export default function FormCheckbox<
         <input
             type="checkbox"
             {...registerProps}
+            value={value as string | undefined}
             className={error ? "error" : ""}
             disabled={isSubmitting}
         />

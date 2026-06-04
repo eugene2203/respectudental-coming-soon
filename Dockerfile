@@ -15,9 +15,6 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# Generate Prisma Client
-RUN npx prisma generate
-
 # Build Next.js
 ENV NEXT_TELEMETRY_DISABLED=1
 RUN npm run build
@@ -49,9 +46,6 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 # Standalone doesn't include public by default, copy it separately
 COPY --from=builder --chown=nextjs:nodejs /app/public ./public
-# Copy Prisma
-COPY --from=builder --chown=nextjs:nodejs /app/node_modules/.prisma ./node_modules/.prisma
-COPY --from=builder --chown=nextjs:nodejs /app/node_modules/@prisma ./node_modules/@prisma
 
 # Create cache directory and tmp directory for PDFs with proper permissions
 RUN mkdir -p /app/.next/cache /app/tmp && chown -R nextjs:nodejs /app/.next/cache /app/tmp
