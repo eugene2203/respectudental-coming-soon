@@ -66,7 +66,7 @@ export default function SubmitCaseForm() {
         }
     }
 
-    const handleDownloadPDF = async () => {
+    const handleSendPDF = async () => {
         setIsGeneratingPDF(true)
         setSubmitMessage(null)
 
@@ -77,14 +77,15 @@ export default function SubmitCaseForm() {
             // Generate PDF on server with form data
             const result = await generateSubmitCasePDF(formData)
 
-            if (result.success && result.pdfPath) {
-                // Trigger download
-                const fileName = result.pdfPath.split('/').pop()
-                window.location.href = `/api/download-pdf?file=${fileName}`
+            if (result.success) {
+                setSubmitMessage({
+                    type: 'success',
+                    text: 'RX form successfully sent.',
+                })
             } else {
                 setSubmitMessage({
                     type: 'error',
-                    text: result.error || 'Failed to generate PDF',
+                    text: result.error || 'Failed to send PDF',
                 })
             }
         } catch {
@@ -282,20 +283,21 @@ export default function SubmitCaseForm() {
                         </div>
                     )}
                     <div className="flex flex-col sm:flex-row gap-4 mt-8">
-                        <button
-                            type="button"
-                            onClick={handleDownloadPDF}
-                            disabled={isGeneratingPDF || isSubmitting}
-                            className="btn-main submit-button w-full sm:w-1/2"
-                        >
-                            {isGeneratingPDF ? 'Generating PDF...' : 'Download PDF'}
-                        </button>
+                        {/*<button*/}
+                        {/*    type="button"*/}
+                        {/*    onClick={handleDownloadPDF}*/}
+                        {/*    disabled={isGeneratingPDF || isSubmitting}*/}
+                        {/*    className="btn-main submit-button w-full sm:w-1/2"*/}
+                        {/*>*/}
+                        {/*    {isGeneratingPDF ? 'Generating PDF...' : 'Download PDF'}*/}
+                        {/*</button>*/}
                         <button
                             type="submit"
+                            onClick={handleSendPDF}
                             disabled={isSubmitting || isGeneratingPDF}
                             className="btn-main submit-button w-full sm:w-1/2"
                         >
-                            {isSubmitting ? 'Sending...' : 'Submit Case'}
+                            {isGeneratingPDF? 'Generating PDF...' : isSubmitting ? 'Sending...' : 'Submit Case'}
                         </button>
                     </div>
                 </form>

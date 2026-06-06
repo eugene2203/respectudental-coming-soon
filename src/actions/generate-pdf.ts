@@ -5,6 +5,7 @@ import { writeFile, mkdir, readFile } from 'fs/promises'
 import { join } from 'path'
 import { randomUUID } from 'crypto'
 import type { SubmitCaseFormData } from '@/lib/validations'
+import {sendMail} from "@/lib/mailer";
 
 const INCLUDED_LABELS: Record<string, string> = {
   digitalFile: 'Digital file',
@@ -88,7 +89,7 @@ async function fillTemplate(data: SubmitCaseFormData): Promise<string> {
   return html
 }
 
-export async function generateSubmitCasePDF(data: SubmitCaseFormData): Promise<{ success: boolean; pdfPath?: string; error?: string }> {
+export async function generateSubmitCasePDF(data: SubmitCaseFormData): Promise<{ success: boolean; error?: string }> {
   let browser
 
   try {
@@ -150,9 +151,28 @@ export async function generateSubmitCasePDF(data: SubmitCaseFormData): Promise<{
     const filePath = join(tmpDir, fileName)
     await writeFile(filePath, pdfBuffer)
 
-    return {
-      success: true,
-      pdfPath: `/tmp/${fileName}`,
+    const attachment = {
+      filename: fileName,
+      data: pdfBuffer as Buffer,
+    };
+
+    try {
+      await sendMail({
+        to: process.env.MAILGUN_TO_EMAIL!,
+        subject: `RX Form from website respectudental.com`,
+        html: `<p>RX Form from website respectudental.com</p>`,
+        attachments: [attachment],
+      });
+
+      return {
+        success: true
+      };
+    } catch (err) {
+      console.error('PDF mail error:', err);
+      return {
+        success: false,
+        error: 'Mail failed'
+      };
     }
   } catch (error) {
     console.error('PDF generation error:', error)
