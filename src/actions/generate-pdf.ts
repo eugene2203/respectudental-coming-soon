@@ -6,7 +6,6 @@ import { join } from 'path'
 import { randomUUID } from 'crypto'
 import type { SubmitCaseFormData } from '@/lib/validations'
 import {sendMail} from "@/lib/mailer";
-import {Readable} from "node:stream";
 
 const INCLUDED_LABELS: Record<string, string> = {
   digitalFile: 'Digital file',
@@ -95,10 +94,10 @@ export async function generateSubmitCasePDF(data: SubmitCaseFormData): Promise<{
 
   try {
     // Debug: log received data
-    console.log('PDF Generation - Received data:', {
-      involvedTeeth: data.involvedTeeth,
-      included: data.included,
-    })
+    // console.log('PDF Generation - Received data:', {
+    //   involvedTeeth: data.involvedTeeth,
+    //   included: data.included,
+    // })
 
     // Fill template with data
     const html = await fillTemplate(data)

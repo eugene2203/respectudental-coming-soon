@@ -9,6 +9,7 @@ import { useRecaptcha } from '@/lib/hooks/useRecaptcha'
 import FormField from "@/components/common/FormField";
 import FormDropdown, { type FormDropdownOption } from "@/components/common/FormDropdown";
 import {ContactFormValues} from "@/types";
+import { toast } from 'sonner';
 
 const departmentOptions: FormDropdownOption[] = [
     { name: 'Crown & Bridge Department', value: 'crown-bridge' },
@@ -43,15 +44,18 @@ export default function ContactForm() {
             const result = await submitContactForm(data, recaptchaToken);
 
             if (result.success) {
+                toast.success(result.message);
                 setSubmitMessage({ type: 'success', text: result.message });
                 reset();
             } else {
+                toast.error(result.error || 'Something went wrong');
                 setSubmitMessage({
                     type: 'error',
                     text: result.error || 'Something went wrong',
                 });
             }
         } catch (error) {
+            toast.error('Failed to submit form. Please try again.');
             setSubmitMessage({
                 type: 'error',
                 text: 'Failed to submit form. Please try again.',

@@ -1,10 +1,23 @@
 'use server'
 
-import { contactFormSchema, type ContactFormData } from '@/lib/validations'
+import {contactFormSchema, type ContactFormData, type SubmitCaseFormData} from '@/lib/validations'
 import { checkRateLimit, contactFormLimiter } from '@/lib/rate-limiter'
 import { verifyRecaptcha } from '@/lib/recaptcha'
 import { headers } from 'next/headers'
 import type { FormResponse } from '@/types'
+import {sendMail} from "@/lib/mailer";
+import {join} from "path";
+import {readFile} from "fs/promises";
+
+interface ValidatedData {
+  doctorName: string;
+  clinicName: string;
+  email: string;
+  phone: string;
+  message: string;
+  department: string;
+}
+
 
 export async function submitContactForm(
   data: ContactFormData,
@@ -12,7 +25,7 @@ export async function submitContactForm(
 ): Promise<FormResponse> {
   try {
     // Validate input
-    const validatedData = contactFormSchema.parse(data)
+    const validatedData:ValidatedData = contactFormSchema.parse(data)
 
     // Verify reCAPTCHA if token provided
     if (recaptchaToken) {
@@ -50,6 +63,14 @@ export async function submitContactForm(
       ip,
     })
 
+    const html = await fillTemplate(validatedData);
+
+    await sendMail({
+      to: process.env.MAILGUN_TO_EMAIL!,
+      subject: `Contact form submission from website respectudental.com`,
+      html: html,
+    });
+
     return {
       success: true,
       message: 'Thank you for your message! We will get back to you soon.',
@@ -62,4 +83,20 @@ export async function submitContactForm(
       error: 'Failed to submit form. Please try again later.',
     }
   }
+}
+
+async function fillTemplate(data:ValidatedData): Promise<string> {
+  // Read template
+  const templatePath = join(process.cwd(), 'src/templates/contact-form.html')
+  let html = await readFile(templatePath, 'utf-8')
+
+  // Replace placeholders
+  html = html
+      .replace('{{DOCTORS_NAME}}', data.doctorName)
+      .replace('{{CLINIC_NAME}}', data.clinicName || '—')
+      .replace('{{EMAIL_ADDRESS}}', data.email || '—')
+      .replace('{{PHONE_NUMBER}}', data.phone || '—')
+      .replace('{{TEXT_MESSAGE}}', data.message || '—')
+
+  return html
 }

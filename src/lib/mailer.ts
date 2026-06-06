@@ -17,8 +17,6 @@ export async function sendMail({ to, subject, html, attachments }: MailOptions) 
         key: process.env.MAILGUN_API_KEY!,
     });
 
-
-
     const messageData: MailgunMessageData = {
         from: `Respect U Dental <${process.env.MAILGUN_FROM_EMAIL!}>`,
         to: Array.isArray(to) ? to : [to],
