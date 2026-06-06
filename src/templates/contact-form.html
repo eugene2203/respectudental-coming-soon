@@ -3,13 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Contact form</title>
+    <style>
+        table, tr, th, td {
+            border: 0;
+        }
+        th, td {
+            padding: 4px;
+        }
+    </style>
 </head>
 <body>
-    <p><strong><u>Contact Form from website respectudental.com</u></strong></p>
-    <p><strong>Doctor's Name:</strong>{{DOCTORS_NAME}}</p>
-    <p><strong>Clinic Name:</strong>{{CLINIC_NAME}}</p>
-    <p><strong>Email Address:</strong>{{EMAIL_ADDRESS}}</p>
-    <p><strong>Phone Number:</strong>{{PHONE_NUMBER}}</p>
-    <p><strong>Message:</strong>{{TEXT_MESSAGE}}</p>
+    <h2><u>Contact Form from website respectudental.com</u></h2>
+    <table>
+        <tr>
+            <th>Doctor's Name:</th>
+            <td>{{DOCTORS_NAME}}</td>
+        </tr>
+        <tr>
+            <th>Clinic Name:</th>
+            <td>{{CLINIC_NAME}}</td>
+        </tr>
+        <tr>
+            <th>Email Address:</th>
+            <td>{{EMAIL_ADDRESS}}</td>
+        </tr>
+        <tr>
+        <tr>
+            <th>Department:</th>
+            <td>{{DEPARTMENT}}</td>
+        </tr>
+        <tr>
+            <th>Message:</th>
+            <td>{{TEXT_MESSAGE}}</td>
+        </tr>
+    </table>
 </body>
 </html>

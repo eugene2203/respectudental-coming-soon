@@ -96,6 +96,7 @@ async function fillTemplate(data:ValidatedData): Promise<string> {
       .replace('{{CLINIC_NAME}}', data.clinicName || '—')
       .replace('{{EMAIL_ADDRESS}}', data.email || '—')
       .replace('{{PHONE_NUMBER}}', data.phone || '—')
+      .replace('{{DEPARTMENT}}', data.department || '—')
       .replace('{{TEXT_MESSAGE}}', data.message || '—')
 
   return html
