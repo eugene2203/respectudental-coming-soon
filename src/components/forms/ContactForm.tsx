@@ -20,10 +20,6 @@ const departmentOptions: FormDropdownOption[] = [
 export default function ContactForm() {
     const { executeRecaptcha } = useRecaptcha();
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [submitMessage, setSubmitMessage] = useState<{
-        type: 'success' | 'error'
-        text: string
-    } | null>(null);
     const {
         register,
         handleSubmit,
@@ -36,7 +32,6 @@ export default function ContactForm() {
 
     const onSubmit = async (data: ContactFormData) => {
         setIsSubmitting(true);
-        setSubmitMessage(null);
 
         try {
             // Execute reCAPTCHA
@@ -45,21 +40,12 @@ export default function ContactForm() {
 
             if (result.success) {
                 toast.success(result.message);
-                setSubmitMessage({ type: 'success', text: result.message });
                 reset();
             } else {
                 toast.error(result.error || 'Something went wrong');
-                setSubmitMessage({
-                    type: 'error',
-                    text: result.error || 'Something went wrong',
-                });
             }
         } catch (error) {
             toast.error('Failed to submit form. Please try again.');
-            setSubmitMessage({
-                type: 'error',
-                text: 'Failed to submit form. Please try again.',
-            });
         } finally {
             setIsSubmitting(false);
         }
@@ -134,11 +120,6 @@ export default function ContactForm() {
                 errors={errors}
                 isSubmitting={isSubmitting}
             />
-            {submitMessage && (
-                <div className={`submit-message ${submitMessage.type}`}>
-                    {submitMessage.text}
-                </div>
-            )}
             <button type="submit" disabled={isSubmitting} className="btn-main submit-button w-full mt-4">
                 {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
