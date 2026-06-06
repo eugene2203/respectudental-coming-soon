@@ -116,7 +116,16 @@ export default function RootLayout({
         <div className="main-wrap flex flex-col min-h-screen relative">
           <Header />
           <main className="grow">{children}</main>
-          <Toaster position="top-right" richColors />
+          <Toaster
+              position="top-right"
+              toastOptions={{
+                classNames: {
+                  success: 'border border-green-500 [&_[data-title]]:text-green-500 [&_[data-description]]:text-green-400',
+                  error: 'border border-red-500 [&_[data-title]]:text-red-500 [&_[data-description]]:text-red-400',
+                  warning: 'border border-yellow-500 [&_[data-title]]:text-yellow-500 [&_[data-description]]:text-yellow-400',
+                  info: 'border border-blue-500 [&_[data-title]]:text-blue-500 [&_[data-description]]:text-blue-400',
+                },
+              }}/>
           <Footer />
         </div>
       </body>
