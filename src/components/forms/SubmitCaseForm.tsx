@@ -253,7 +253,7 @@ export default function SubmitCaseForm() {
                         resulting from clinical techniques, impressions, or improper models provided by the
                         clinician. All work is custom made and non-refundable.
                     </div>
-                    <div className="flex flex-col sm:flex-row gap-4 mt-8">
+                    <div className="flex flex-col sm:flex-row gap-4 mt-8 m-auto">
                         <button
                             type="submit"
                             onClick={handleSendPDF}
