@@ -14,6 +14,7 @@ import {
     INVOLVED_TEETH_LOWER_OPTIONS,
     INCLUDED_OPTIONS,
 } from '@/components/forms/submit-case-form-options'
+import { toast } from 'sonner';
 
 export default function SubmitCaseForm() {
     const { executeRecaptcha } = useRecaptcha()
@@ -78,17 +79,21 @@ export default function SubmitCaseForm() {
             const result = await generateSubmitCasePDF(formData)
 
             if (result.success) {
+                toast.success('RX form successfully sent!');
                 setSubmitMessage({
                     type: 'success',
                     text: 'RX form successfully sent.',
                 })
             } else {
+                toast.error(result.error || 'Failed to send PDF');
+
                 setSubmitMessage({
                     type: 'error',
                     text: result.error || 'Failed to send PDF',
                 })
             }
         } catch {
+            toast.error('Failed to generate PDF. Please try again.');
             setSubmitMessage({
                 type: 'error',
                 text: 'Failed to generate PDF. Please try again.',
@@ -283,14 +288,6 @@ export default function SubmitCaseForm() {
                         </div>
                     )}
                     <div className="flex flex-col sm:flex-row gap-4 mt-8">
-                        {/*<button*/}
-                        {/*    type="button"*/}
-                        {/*    onClick={handleDownloadPDF}*/}
-                        {/*    disabled={isGeneratingPDF || isSubmitting}*/}
-                        {/*    className="btn-main submit-button w-full sm:w-1/2"*/}
-                        {/*>*/}
-                        {/*    {isGeneratingPDF ? 'Generating PDF...' : 'Download PDF'}*/}
-                        {/*</button>*/}
                         <button
                             type="submit"
                             onClick={handleSendPDF}

@@ -4,6 +4,7 @@ import "@/styles/app.scss";
 import Script from "next/script";
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
+import { Toaster } from 'sonner';
 
 export const metadata: Metadata = {
   title: "Respect U Dental Lab | Crowns, Implants & Prosthetics in Brooklyn, NY",
@@ -115,6 +116,7 @@ export default function RootLayout({
         <div className="main-wrap flex flex-col min-h-screen relative">
           <Header />
           <main className="grow">{children}</main>
+          <Toaster position="top-right" richColors />
           <Footer />
         </div>
       </body>
