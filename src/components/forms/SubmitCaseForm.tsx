@@ -20,10 +20,6 @@ export default function SubmitCaseForm() {
     const { executeRecaptcha } = useRecaptcha()
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [isGeneratingPDF, setIsGeneratingPDF] = useState(false)
-    const [submitMessage, setSubmitMessage] = useState<{
-        type: 'success' | 'error'
-        text: string
-    } | null>(null)
 
     const {
         register,
@@ -42,26 +38,15 @@ export default function SubmitCaseForm() {
 
     const onSubmit = async (data: SubmitCaseFormData) => {
         setIsSubmitting(true)
-        setSubmitMessage(null)
 
         try {
             const recaptchaToken = await executeRecaptcha('submit_case_form')
             const result = await submitCaseForm(data, recaptchaToken)
 
             if (result.success) {
-                setSubmitMessage({ type: 'success', text: result.message })
                 reset()
-            } else {
-                setSubmitMessage({
-                    type: 'error',
-                    text: result.error || 'Something went wrong',
-                })
             }
         } catch {
-            setSubmitMessage({
-                type: 'error',
-                text: 'Failed to submit form. Please try again.',
-            })
         } finally {
             setIsSubmitting(false)
         }
@@ -69,7 +54,6 @@ export default function SubmitCaseForm() {
 
     const handleSendPDF = async () => {
         setIsGeneratingPDF(true)
-        setSubmitMessage(null)
 
         try {
             // Get current form data from react-hook-form
@@ -80,24 +64,11 @@ export default function SubmitCaseForm() {
 
             if (result.success) {
                 toast.success('RX form successfully sent!');
-                setSubmitMessage({
-                    type: 'success',
-                    text: 'RX form successfully sent.',
-                })
             } else {
                 toast.error(result.error || 'Failed to send PDF');
-
-                setSubmitMessage({
-                    type: 'error',
-                    text: result.error || 'Failed to send PDF',
-                })
             }
         } catch {
             toast.error('Failed to generate PDF. Please try again.');
-            setSubmitMessage({
-                type: 'error',
-                text: 'Failed to generate PDF. Please try again.',
-            })
         } finally {
             setIsGeneratingPDF(false)
         }
@@ -282,11 +253,6 @@ export default function SubmitCaseForm() {
                         resulting from clinical techniques, impressions, or improper models provided by the
                         clinician. All work is custom made and non-refundable.
                     </div>
-                    {submitMessage && (
-                        <div className={`submit-message ${submitMessage.type}`}>
-                            {submitMessage.text}
-                        </div>
-                    )}
                     <div className="flex flex-col sm:flex-row gap-4 mt-8">
                         <button
                             type="submit"
