@@ -11,8 +11,7 @@ services:
       - NODE_ENV=production
     env_file:
       - .env
-    volumes:
-      - ./tmp:/app/tmp
-      # Don't mount public in production - it's already in the image
-      # - ./public:/app/public
+    # volumes:
+      # Don't mount tmp - let Docker create it with correct permissions
+      # - ./tmp:/app/tmp
     command: sh -c "node server.js"
