@@ -1,11 +1,12 @@
 'use server'
 
 import puppeteer from 'puppeteer'
-import { writeFile, mkdir, readFile } from 'fs/promises'
+import {writeFile, mkdir, readFile, unlink} from 'fs/promises'
 import { join } from 'path'
 import { randomUUID } from 'crypto'
 import type { SubmitCaseFormData } from '@/lib/validations'
 import {sendMail} from "@/lib/mailer";
+import {Readable} from "node:stream";
 
 const INCLUDED_LABELS: Record<string, string> = {
   digitalFile: 'Digital file',
@@ -153,26 +154,18 @@ export async function generateSubmitCasePDF(data: SubmitCaseFormData): Promise<{
 
     const attachment = {
       filename: fileName,
-      data: pdfBuffer as Buffer,
+      data: Buffer.from(pdfBuffer),
     };
 
-    try {
-      await sendMail({
-        to: process.env.MAILGUN_TO_EMAIL!,
-        subject: `RX Form from website respectudental.com`,
-        html: `<p>RX Form from website respectudental.com</p>`,
-        attachments: [attachment],
-      });
-
-      return {
-        success: true
-      };
-    } catch (err) {
-      console.error('PDF mail error:', err);
-      return {
-        success: false,
-        error: 'Mail failed'
-      };
+    await sendMail({
+      to: process.env.MAILGUN_TO_EMAIL!,
+      subject: `RX Form from website respectudental.com`,
+      html: `<p>RX Form from website respectudental.com</p>`,
+      attachments: [attachment],
+    });
+    await unlink(filePath).catch(err => console.error('Failed to delete temp file:', err))
+    return {
+      success: true
     }
   } catch (error) {
     console.error('PDF generation error:', error)
@@ -185,4 +178,5 @@ export async function generateSubmitCasePDF(data: SubmitCaseFormData): Promise<{
       await browser.close()
     }
   }
+
 }

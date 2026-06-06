@@ -6,7 +6,7 @@ export interface MailOptions {
     to: string | string[];
     subject: string;
     html: string;
-    attachments?: { filename: string; data: Buffer }[];
+    attachments?: { filename: string; data: Buffer  }[];
 }
 
 export async function sendMail({ to, subject, html, attachments }: MailOptions) {
@@ -20,7 +20,7 @@ export async function sendMail({ to, subject, html, attachments }: MailOptions) 
 
 
     const messageData: MailgunMessageData = {
-        from: `Respectu Dental <${process.env.MAILGUN_FROM_EMAIL!}>`,
+        from: `Respect U Dental <${process.env.MAILGUN_FROM_EMAIL!}>`,
         to: Array.isArray(to) ? to : [to],
         subject,
         html,
@@ -32,8 +32,6 @@ export async function sendMail({ to, subject, html, attachments }: MailOptions) 
             data,
         }));
     }
-
-    console.log(messageData);
 
     return mg.messages.create(process.env.MAILGUN_DOMAIN!, messageData);
 }
