@@ -21,7 +21,7 @@ export default function ReachOutTabsBlock() {
             title: 'Crown & Bridge Department',
             lead: 'Alexander R. (Head Technician)',
             phone: '(718) 200-1532',
-            email: 'crown.dept@respectdental.com',
+            email: 'crown.dept@respectudental.com',
             coreCompetencies: ['CAD/CAM Design', 'Rush Case Management', 'Zirconia Restorations & Materials'],
         },
         {
@@ -30,7 +30,7 @@ export default function ReachOutTabsBlock() {
             title: 'Removable Department',
             lead: 'Alexander R. (Head Technician)',
             phone: '(718) 200-1532',
-            email: 'crown.dept@respectdental.com',
+            email: 'crown.dept@respectudental.com',
             coreCompetencies: ['CAD/CAM Design', 'Rush Case Management', 'Zirconia Restorations & Materials'],
         },
         {
@@ -39,7 +39,7 @@ export default function ReachOutTabsBlock() {
             title: 'Billing & Logistics Department',
             lead: 'Alexander R. (Head Technician)',
             phone: '(718) 200-1532',
-            email: 'crown.dept@respectdental.com',
+            email: 'crown.dept@respectudental.com',
             coreCompetencies: [],
         }
     ]

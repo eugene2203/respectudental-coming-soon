@@ -22,6 +22,9 @@ export const metadata: Metadata = {
       },
     ],
   },
+    alternates: {
+        canonical: 'https://respectudental.com/',
+    },
 };
 
 export default function Home() {
