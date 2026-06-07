@@ -11,6 +11,7 @@ export default function Header() {
     const menuList: MenuItem[] = [
         {name: 'About Us', link: '/about'},
         {name: 'Our Services', link: '/services'},
+        {name: 'Blog', link: '/blog' },
         {name: 'Contact Us', link: '/contact'},
     ]
 

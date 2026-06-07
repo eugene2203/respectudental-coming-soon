@@ -1,25 +1,4 @@
 services:
-  db:
-    image: mariadb:11.6
-    container_name: respectudental_db_dev
-    restart: unless-stopped
-    environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-rootpassword}
-      MYSQL_DATABASE: ${MYSQL_DATABASE:-respectudental}
-      MYSQL_USER: ${MYSQL_USER:-user}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-password}
-    ports:
-      - "3307:3306"
-    volumes:
-      - db_data_dev:/var/lib/mysql
-    networks:
-      - respectudental_network
-    healthcheck:
-      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-
   app:
     build:
       context: .
@@ -27,42 +6,22 @@ services:
     container_name: respectudental_app_dev
     restart: unless-stopped
     ports:
-      - "3000:3000"
+      - "3311:3000"
     environment:
       - NODE_ENV=development
-      - DATABASE_URL=mysql://${MYSQL_USER:-user}:${MYSQL_PASSWORD:-password}@db:3306/${MYSQL_DATABASE:-respectudental}
       - WATCHPACK_POLLING=true
+      - CHOKIDAR_USEPOLLING=true
+      - CHOKIDAR_INTERVAL=300
     env_file:
       - .env
     volumes:
       - .:/app
       - /app/node_modules
-      - /app/.next
+      - next_cache:/app/.next
       - ./tmp:/app/tmp
-    depends_on:
-      db:
-        condition: service_healthy
-    networks:
-      - respectudental_network
-    command: sh -c "npx prisma generate && npm run dev"
-
-  adminer:
-    image: adminer:latest
-    container_name: respectudental_adminer_dev
-    restart: unless-stopped
-    ports:
-      - "8080:8080"
-    environment:
-      ADMINER_DEFAULT_SERVER: db
-    depends_on:
-      - db
-    networks:
-      - respectudental_network
+    command: npm run dev
 
 volumes:
-  db_data_dev:
+  next_cache:
     driver: local
 
-networks:
-  respectudental_network:
-    driver: bridge
