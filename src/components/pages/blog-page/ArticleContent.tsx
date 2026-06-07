@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { BlogPost } from "@/lib/blog";
 
 interface ArticleContentProps {
@@ -15,11 +16,16 @@ export default function ArticleContent({ post, relatedPosts }: ArticleContentPro
 
                     {/* ---- Main content ---- */}
                     <div className="article__main">
-                        <div
-                            className="article__cover"
-                            style={{ backgroundColor: post.coverColor }}
-                        />
-
+                        <div className="article__cover">
+                            <Image
+                                src={post.image}
+                                alt={post.title}
+                                fill
+                                style={{ objectFit: "cover" }}
+                                priority
+                                sizes="(max-width: 1280px) 100vw, 800px"
+                            />
+                        </div>
                         <div className="article__header">
                             <span className="sticker-item">{post.category}</span>
                             <h1 className="article__title">{post.title}</h1>

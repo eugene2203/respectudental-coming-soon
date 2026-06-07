@@ -6,6 +6,7 @@ export interface BlogPost {
     category: string;
     readTime: string;
     coverColor: string;
+    image: string;
     content: {
         intro: string;
         sections: {
@@ -19,6 +20,7 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
     {
         slug: 'zirconia-crowns-modern-dentistry',
+        image: '/images/blog/zirconia-crowns.jpg',
         title: 'How Zirconia Crowns Changed Modern Dentistry',
         excerpt: 'Zirconia has revolutionized restorative dentistry over the past decade. Learn how this material became the gold standard for crowns and bridges.',
         date: 'May 28, 2026',
@@ -50,6 +52,7 @@ export const blogPosts: BlogPost[] = [
     },
     {
         slug: 'cadcam-technology-dental-labs',
+        image: '/images/blog/cadcam-technology.jpg',
         title: 'CAD/CAM Technology in Dental Labs: What Dentists Should Know',
         excerpt: "CAD/CAM has transformed how dental restorations are designed and fabricated. Here's a practical overview for dental clinicians working with modern laboratories.",
         date: 'May 15, 2026',
@@ -81,6 +84,7 @@ export const blogPosts: BlogPost[] = [
     },
     {
         slug: 'all-on-4-vs-all-on-6',
+        image: '/images/blog/all-on-implants.jpg',
         title: 'All-on-4 vs All-on-6: What the Laboratory Perspective Tells Us',
         excerpt: 'Both implant-supported full-arch solutions are popular, but they place different demands on the laboratory. Here\'s what we see from the other side of the bench.',
         date: 'April 30, 2026',
@@ -112,6 +116,7 @@ export const blogPosts: BlogPost[] = [
     },
     {
         slug: 'digital-vs-physical-impressions',
+        image: '/images/blog/digital-impressions.jpg',
         title: 'Digital Impressions vs Physical Molds: Pros and Cons for Your Lab',
         excerpt: 'Is it time to invest in an intraoral scanner? We break down the advantages and practical considerations from both the clinician and laboratory perspectives.',
         date: 'April 12, 2026',
@@ -143,6 +148,7 @@ export const blogPosts: BlogPost[] = [
     },
     {
         slug: 'ips-emax-ceramic-restorations',
+        image: '/images/blog/ips-emax.jpg',
         title: 'IPS e.max: Why It Remains the Gold Standard for Anterior Aesthetics',
         excerpt: 'Decades after its introduction, IPS e.max lithium disilicate continues to dominate aesthetic anterior restorations. Here\'s why — and when to use it.',
         date: 'March 22, 2026',
@@ -174,6 +180,7 @@ export const blogPosts: BlogPost[] = [
     },
     {
         slug: 'choose-right-dental-lab',
+        image: '/images/blog/choose-dental-lab.jpg',
         title: 'How to Choose the Right Dental Lab for Your Practice',
         excerpt: 'Not all dental labs are created equal. Here are the key factors to consider when selecting a laboratory partner — and the questions every dentist should ask.',
         date: 'March 5, 2026',

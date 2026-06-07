@@ -6,7 +6,7 @@ import { getBlogPostBySlug, getAllBlogSlugs, blogPosts } from "@/lib/blog";
 import Script from "next/script";
 
 interface Props {
-    params: { slug: string };
+    params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
@@ -14,7 +14,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const post = getBlogPostBySlug(params.slug);
+    const { slug } = await params;
+    const post = getBlogPostBySlug(slug);
     if (!post) return {};
 
     return {
@@ -32,8 +33,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 }
 
-export default function BlogPostPage({ params }: Props) {
-    const post = getBlogPostBySlug(params.slug);
+export default async function BlogPostPage({ params }: Props) {
+    const { slug } = await params;
+    const post = getBlogPostBySlug(slug);
     if (!post) notFound();
 
     const relatedPosts = blogPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
@@ -78,12 +80,10 @@ export default function BlogPostPage({ params }: Props) {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
             />
-            <div className="container">
-                <BreadCrumbs
-                    parentPages={[{ link: "/blog", cap: "Blog" }]}
-                    page={post.title}
-                />
-            </div>
+            <BreadCrumbs
+                parentPages={[{ link: "/blog", cap: "Blog" }]}
+                page={post.title}
+            />
             <ArticleContent post={post} relatedPosts={relatedPosts} />
         </>
     );

@@ -7,6 +7,7 @@ export default function BreadCrumbs({parentPages, page}: BreadCrumbsProps) {
         <section className="breadcrumbs-section">
             <div className="container">
                 <ul className="breadcrumbs flex items-center">
+                    {/* Home */}
                     <li className="breadcrumbs__item">
                         <Link href="/">
                             <svg className="svg-icon home-icon shrink-0 mr-2">
@@ -14,21 +15,20 @@ export default function BreadCrumbs({parentPages, page}: BreadCrumbsProps) {
                             </svg>
                         </Link>
                     </li>
+
+                    {/* Parent pages */}
                     {parentPages && parentPages.map((parentPage, index) => (
                         <li key={`parent-link-${index}`} className="breadcrumbs__item">
                             <svg className="svg-icon shrink-0 mr-2">
                                 <use xlinkHref="/images/sprite.svg#arrow-right-icon"></use>
                             </svg>
                             <Link href={parentPage.link} className="flex items-center">
-                                {index === parentPages.length - 1 &&
-                                    <svg className="svg-icon flex-shrink-0 mr-2">
-                                        <use xlinkHref="/images/sprite.svg#arrow-right-icon"></use>
-                                    </svg>
-                                }
                                 {parentPage.cap}
                             </Link>
                         </li>
                     ))}
+
+                    {/* Current page */}
                     <li className="breadcrumbs__item flex items-center">
                         <svg className="svg-icon shrink-0 mr-2">
                             <use xlinkHref="/images/sprite.svg#arrow-right-icon"></use>

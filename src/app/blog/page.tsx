@@ -44,9 +44,7 @@ export default function BlogPage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
             />
-            <div className="container">
-                <BreadCrumbs page="Blog" />
-            </div>
+            <BreadCrumbs page="Blog" />
             <BlogBanner />
             <BlogList posts={blogPosts} />
         </>
