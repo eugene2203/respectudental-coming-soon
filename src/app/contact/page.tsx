@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     description: "Reach out to our team for dental laboratory services. 1 Woodside Ave, Brooklyn, NY 11223. (718) 200-1532",
     url: "https://respectudental.com/contact",
   },
+  alternates: {
+      canonical: 'https://respectudental.com/contact',
+  },
 };
 
 export default function ContactPage() {

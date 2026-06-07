@@ -7,13 +7,13 @@ export default function AreasOfExpertiseBlock() {
         {
             img: '/images/main-page/teeth-img-1.png',
             title: 'CROWN & BRIDGE DEPARTMENT',
-            slug: '/',
+            slug: '/services',
             text: 'Highly aesthetic crowns and bridges. We use zirconia, IPS e.max and metal-ceramic for a perfect fit along the edges.'
         },
         {
             img: '/images/main-page/teeth-img-2.png',
             title: 'REMOVABLE DEPARTMENT',
-            slug: '/',
+            slug: '/services',
             text: 'Customized implant solutions. Screw-retained crowns and custom abutments that ensure a perfect emergence profile.'
         },
     ];
@@ -28,7 +28,7 @@ export default function AreasOfExpertiseBlock() {
                         return (
                             <div key={`expertise-card-${i}`} className="expertise-card">
                                 <div className="expertise-card__img relative">
-                                    {/*<Link href={item.slug} className="fake-link-block"></Link>*/}
+                                    <Link href={item.slug} className="fake-link-block"></Link>
                                     <Image src={item.img}
                                            className="object-cover"
                                            alt="expertise-card"

@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     description: "",
     url: "https://respectudental.com/submit-case",
   },
+    alternates: {
+        canonical: 'https://respectudental.com/submit-case',
+    },
 };
 
 export default function SubmitCasePage() {

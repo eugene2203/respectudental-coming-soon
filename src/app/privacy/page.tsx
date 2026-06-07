@@ -10,6 +10,9 @@ export const metadata: Metadata = {
         description: "Our commitment to protecting your privacy and personal information.",
         url: "https://respectudental.com/privacy",
     },
+    alternates: {
+        canonical: 'https://respectudental.com/privacy',
+    },
 };
 
 export default function PrivacyPAge() {

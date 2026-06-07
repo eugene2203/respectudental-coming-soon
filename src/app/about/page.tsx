@@ -15,6 +15,9 @@ export const metadata: Metadata = {
         description: "Innovative leadership, cutting-edge technology, and dedicated professionals. From simple restorations to complex clinical cases.",
         url: "https://respectudental.com/about",
     },
+    alternates: {
+        canonical: 'https://respectudental.com/about',
+    },
 };
 
 export default function AboutPage() {

@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     description: "Comprehensive dental lab services: crowns, implants, bridges, dentures, and custom prosthetics with precision and speed.",
     url: "https://respectudental.com/services",
   },
+    alternates: {
+        canonical: 'https://respectudental.com/services',
+    },
 };
 
 export default function ServicesPage() {

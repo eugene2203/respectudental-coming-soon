@@ -11,6 +11,9 @@ export const metadata: Metadata = {
         description: "Our terms of service and legal agreements for dental laboratory services.",
         url: "https://respectudental.com/terms",
     },
+    alternates: {
+        canonical: 'https://respectudental.com/terms',
+    },
 };
 
 export default function PrivacyPAge() {
