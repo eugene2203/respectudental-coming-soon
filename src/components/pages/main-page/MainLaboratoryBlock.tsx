@@ -11,7 +11,7 @@ export default function MainLaboratoryBlock() {
                         <div className="laboratory-info__img-wrap relative mb-3">
                             <Image src="/images/main-page/laboratory-img.png"
                                    className="object-cover"
-                                   alt="laboratory-img"
+                                   alt="CDT-accredited dental lab workspace in Brooklyn, NY"
                                    fill
                             />
                         </div>

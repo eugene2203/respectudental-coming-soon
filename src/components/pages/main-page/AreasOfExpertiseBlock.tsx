@@ -8,13 +8,15 @@ export default function AreasOfExpertiseBlock() {
             img: '/images/main-page/teeth-img-1.png',
             title: 'CROWN & BRIDGE DEPARTMENT',
             slug: '/services',
-            text: 'Highly aesthetic crowns and bridges. We use zirconia, IPS e.max and metal-ceramic for a perfect fit along the edges.'
+            text: 'Highly aesthetic crowns and bridges. We use zirconia, IPS e.max and metal-ceramic for a perfect fit along the edges.',
+            alt: 'Zirconia dental crown and bridge restorations'
         },
         {
             img: '/images/main-page/teeth-img-2.png',
             title: 'REMOVABLE DEPARTMENT',
             slug: '/services',
-            text: 'Customized implant solutions. Screw-retained crowns and custom abutments that ensure a perfect emergence profile.'
+            text: 'Customized implant solutions. Screw-retained crowns and custom abutments that ensure a perfect emergence profile.',
+            alt: 'Custom removable dental prosthetics and dentures'
         },
     ];
 
@@ -31,7 +33,7 @@ export default function AreasOfExpertiseBlock() {
                                     <Link href={item.slug} className="fake-link-block"></Link>
                                     <Image src={item.img}
                                            className="object-cover"
-                                           alt="expertise-card"
+                                           alt={item.alt}
                                            fill
                                     />
                                 </div>
