@@ -9,7 +9,7 @@ export default function MainBanner() {
                 <div className="main-banner xl:flex items-center justify-between relative">
                     <div className="main-banner__left">
                         <div className="sticker-item mb-4 xl:mb-3">Brooklyn, New York</div>
-                        <h1 className="mb-4 xl:mb-0">High-quality dental laboratory services for your clinic</h1>
+                        <h1 className="mb-4 xl:mb-0">High-quality dental laboratory services for dental clinics in Brooklyn, NY</h1>
                         <p className="mb-4 xl:mb-3">
                             Innovative leadership, cutting-edge technology, and dedicated professionals. From simple
                             restorations to the most complex clinical cases.

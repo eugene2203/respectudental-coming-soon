@@ -4,6 +4,7 @@ import AreasOfExpertiseBlock from "@/components/pages/main-page/AreasOfExpertise
 import TechnologiesAndMaterials from "@/components/pages/main-page/TechnologiesAndMaterials";
 import { Metadata } from "next";
 import QuestionsBlock from "@/components/pages/contacts-page/QuestionsBlock";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Respect U Dental Lab | Premium Dental Restorations in Brooklyn, NY",
@@ -64,10 +65,11 @@ export default function Home() {
 
   return (
       <>
-          <script
+          <Script
               id="faq-schema"
               type="application/ld+json"
               dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+              strategy="beforeInteractive"
           />
 
         <MainBanner/>

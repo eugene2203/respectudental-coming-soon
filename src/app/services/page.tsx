@@ -5,6 +5,7 @@ import SpecializationsBlock from "@/components/pages/services-page/Specializatio
 import WorkflowBlock from "@/components/pages/services-page/WorkflowBlock";
 import TestBlock from "@/components/pages/services-page/TestBlock";
 import MicroscopicControlBlock from "@/components/pages/services-page/MicroscopicControlBlock";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Dental Lab Services | Crowns, Implants, Bridges & Dentures - Brooklyn NY",
@@ -34,10 +35,11 @@ export default function ServicesPage() {
 
     return (
         <>
-            <script
+            <Script
                 id="breadcrumb-schema"
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+                strategy="beforeInteractive"
             />
 
             <BreadCrumbs page={'Our Services'}/>

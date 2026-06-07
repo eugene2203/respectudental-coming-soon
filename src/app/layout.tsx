@@ -103,9 +103,9 @@ export default function RootLayout({
                 "closes": "18:00"
               },
               "sameAs": [
-                "https://www.facebook.com/respectudental",
+                // "https://www.facebook.com/respectudental",
                 "https://www.instagram.com/respectudental",
-                "https://www.linkedin.com/company/respectudental"
+                // "https://www.linkedin.com/company/respectudental"
               ]
             }),
           }}
