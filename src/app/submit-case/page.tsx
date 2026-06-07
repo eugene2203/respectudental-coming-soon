@@ -3,12 +3,12 @@ import BreadCrumbs from "@/components/common/BreadCrumbs";
 import SubmitCaseForm from "@/components/forms/SubmitCaseForm";
 
 export const metadata: Metadata = {
-  title: "Submit the Case -> | Respect U Dental Lab - Brooklyn, NY | (718) 200-1532",
-  description: "",
+  title: "Submit the Case | Respect U Dental Lab - Brooklyn, NY | (718) 200-1532",
+  description: "Submit your dental lab case online. Fill out the prescription form for fixed or removable prosthetics. Fast processing, precise fabrication. Serving Brooklyn dental clinics.",
   keywords: [""],
   openGraph: {
     title: "Submit the Case Respect U Dental Lab | Brooklyn, NY",
-    description: "",
+    description: "Submit your dental lab case online. Fill out the prescription form for fixed or removable prosthetics. Fast processing, precise fabrication. Serving Brooklyn dental clinics.",
     url: "https://respectudental.com/submit-case",
   },
     alternates: {
@@ -29,8 +29,8 @@ export default function SubmitCasePage() {
                             Use the form below to submit your case details quickly and accurately.
                             This prescription form helps us craft high-quality dental restorations tailored
                             to your patient's needs. Simply fill out the necessary information, select your
-                            preferred materials and specifications, and submit your order. Our team at Ceramic
-                            Arts Dental is committed to precision and excellence in every case we handle.
+                            preferred materials and specifications, and submit your order. Our team at Respect U
+                            Dental Lab is committed to precision and excellence in every case we handle.
                         </p>
                     </div>
                 </div>

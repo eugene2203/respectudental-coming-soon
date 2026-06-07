@@ -58,14 +58,23 @@ export default async function BlogPostPage({ params }: Props) {
     const articleSchema = {
         "@context": "https://schema.org",
         "@type": "Article",
-        headline: post.title,
-        description: post.excerpt,
-        datePublished: post.date,
-        publisher: {
+        "headline": post.title,
+        "description": post.excerpt,
+        "datePublished": post.date,
+        "dateModified": post.date,
+        "author": {
             "@type": "Organization",
-            name: "Respect U Dental Lab",
-            url: "https://respectudental.com",
+            "name": "Respect U Dental Lab"
         },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Respect U Dental Lab",
+            "url": "https://respectudental.com",
+        },
+        "logo": {                          // ← добавить
+            "@type": "ImageObject",
+            "url": "https://respectudental.com/images/logo-respectu-1200-630.pn"
+        }
     };
 
     return (
