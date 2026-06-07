@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://respectudental.com/",
-    title: "Respect U Dental Lab | No Mistakes",
+    title: "Respect U Dental Lab | Crowns, Implants & Prosthetics in Brooklyn, NY",
     description: "Respect U Dental Lab - A New Vision for Dental Restorations. No Mistakes.",
     images: [
       {
