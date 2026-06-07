@@ -58,7 +58,7 @@ export default function SpecializationsBlock() {
                         return (
                             <div key={`expertise-card-${i}`} className="expertise-card">
                                 <div className="expertise-card__img relative">
-                                    <Link href={item.slug} className="fake-link-block"></Link>
+                                    {/*<Link href={item.slug} className="fake-link-block"></Link>*/}
                                     <Image src={item.img}
                                            className="object-cover"
                                            alt="expertise-card"
