@@ -2,7 +2,7 @@ import React from "react";
 
 export default function MissionBlock() {
     const missionCards = [
-        {icon: 'target-icon', title: 'Mission', text: 'To provide dental clinics with high-precision prosthetic solutions, improving patients\' quality of life through their smiles.'} ,
+        {icon: 'target-icon', title: 'Mission', text: "To provide dental clinics with high-precision prosthetic solutions, improving patients' quality of life through their smiles."} ,
         {icon: 'target-icon', title: 'Reliability', text: 'We use only certified materials (Zirconia, IPS e.max) and guarantee the durability and biocompatibility of every restoration.'}  ,
         {icon: 'target-icon', title: 'Innovation', text: 'Continuous implementation of CAD/CAM technologies and 3D printing allows us to achieve a perfect fit every single time.'}
     ]

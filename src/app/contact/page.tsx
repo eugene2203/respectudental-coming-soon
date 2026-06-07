@@ -51,6 +51,15 @@ const faqSchema = {
     ],
 }
 
+const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://respectudental.com' },
+        { '@type': 'ListItem', position: 2, name: 'Contact Us', item: 'https://respectudental.com/contact' },
+    ],
+}
+
 export default function ContactPage() {
 
     return (
@@ -59,6 +68,11 @@ export default function ContactPage() {
                 id="faq-schema"
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+            />
+            <script
+                id="breadcrumb-schema"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
             />
 
             <BreadCrumbs page={'Contact Us'}/>
