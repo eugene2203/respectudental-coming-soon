@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Respect U Dental Lab | Crowns, Implants & Prosthetics in Brooklyn, NY",
     description: "Respect U Dental Lab - A New Vision for Dental Restorations. No mistakes.",
-    images: ["https://respectudental.com/images/logo-respectu.png"],
+    images: ["https://respectudental.com/images/og-image-1200-630.png"],
   },
   icons: {
     icon: [
