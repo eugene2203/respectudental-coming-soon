@@ -56,9 +56,9 @@ export default function Footer() {
                         <ul className="list-none p-0">
                             <li className="flex gap-4 mb-5">
                                 <span className="font-medium">Mon–Fri:</span>
-                                <time dateTime="10:00">10:00 AM</time>
+                                <time dateTime="09:00">9:00 AM</time>
                                 –
-                                <time dateTime="17:00">5:00 PM</time>
+                                <time dateTime="18:00">6:00 PM</time>
                             </li>
                             <li className="flex gap-4">
                                 <span className="font-medium">Sat–Sun:</span>

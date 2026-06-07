@@ -2,5 +2,14 @@
 # https://respectudental.com
 # Block all indexing
 
+#User-agent: *
+#Disallow: /
+
 User-agent: *
-Disallow: /
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /tmp/
+
+# Sitemap
+Sitemap: https://respectudental.com/sitemap.xml

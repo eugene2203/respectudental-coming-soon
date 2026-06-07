@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   description: "Brooklyn's premier dental laboratory offering high-quality crowns, implants, bridges, and prosthetics. Innovative technology, fast turnaround, precision craftsmanship. Serving dental clinics across NYC.",
   keywords: ["dental lab Brooklyn", "dental laboratory NYC", "dental crowns Brooklyn", "dental implants lab", "prosthetics Brooklyn", "dental restorations"],
   openGraph: {
+    type: "website",
     title: "Respect U Dental Lab | Premium Dental Restorations Brooklyn",
     description: "High-quality dental laboratory services for your clinic. Innovative leadership, cutting-edge technology, dedicated professionals.",
     url: "https://respectudental.com",
