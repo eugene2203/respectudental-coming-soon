@@ -40,7 +40,7 @@ export default function ContactInfo() {
             title: 'Operating Hours',
             icon: 'clock',
             link: null,
-            text1: `Monday — Friday: 10:00am – 5:00pm`,
+            text1: `Monday — Friday: 9:00am – 6:00pm`,
             text2: `Saturday — Sunday: Closed`
         }
     ];
