@@ -7,9 +7,9 @@ import { SocialItem } from "@/types";
 export default function Footer() {
     const pathname = usePathname();
     const socialList: SocialItem[] = [
-        {icon: 'fb-icon', link: '/'},
+        // {icon: 'fb-icon', link: '/'},
         {icon: 'insta-icon', link: 'https://www.instagram.com/respectudental/'},
-        {icon: 'whatsapp-icon', link: '/'},
+        // {icon: 'whatsapp-icon', link: '/'},
     ]
 
     return (

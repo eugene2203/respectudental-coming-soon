@@ -31,8 +31,8 @@ export default function ContactInfo() {
             id: 3,
             title: 'Email Address',
             icon: 'email',
-            link: 'mailto:contact@respectdental.com',
-            text1: `contact@respectdental.com`,
+            link: 'mailto:contact@respectudental.com',
+            text1: `contact@respectudental.com`,
             text2: `For general inquiries, case files, and pricing`
         },
         {

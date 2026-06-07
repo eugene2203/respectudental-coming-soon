@@ -20,10 +20,47 @@ export const metadata: Metadata = {
   },
 };
 
+const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+        {
+            '@type': 'Question',
+            name: 'How do I send my first case to your laboratory?',
+            acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'You can send a physical impression via our local courier service or upload digital scan files (STL) using the digital gateway on our website. We accept scans from all major intraoral scanners (3Shape TRIOS, iTero, Medit, etc.).',
+            },
+        },
+        {
+            '@type': 'Question',
+            name: 'What is your standard turnaround time?',
+            acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Single crowns & veneers — 5–7 business days. Bridges (3–4 units) — 7–10 business days. Implant restorations — 7–10 business days. Full-arch cases (All-on-4 / All-on-6) — 10–15 business days. Partial & full dentures — 10–14 business days. Night guards & retainers — 3–5 business days.',
+            },
+        },
+        {
+            '@type': 'Question',
+            name: 'What materials do you use for removable restorations?',
+            acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'We work with acrylic resin (PMMA), flexible resin (Valplast/TCS), and Chrome Cobalt for partial frameworks. All materials meet FDA requirements and are sourced from certified suppliers.',
+            },
+        },
+    ],
+}
+
 export default function ContactPage() {
 
     return (
         <>
+            <script
+                id="faq-schema"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+            />
+
             <BreadCrumbs page={'Contact Us'}/>
             <ContactBanner/>
             <FormBlock/>
