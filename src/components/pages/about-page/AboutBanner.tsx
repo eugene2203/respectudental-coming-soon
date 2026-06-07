@@ -19,7 +19,7 @@ export default function AboutBanner() {
                         <div className="main-banner__right relative">
                             <Image src="/images/about-page/about-banner.png"
                                    className="object-cover"
-                                   alt="Banner"
+                                   alt="Respect U Dental Lab team in Brooklyn dental laboratory"
                                    fill
                             />
                         </div>

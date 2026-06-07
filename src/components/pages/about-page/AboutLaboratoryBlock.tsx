@@ -30,7 +30,7 @@ export default function AboutLaboratoryBlock() {
                         <div className="laboratory-info__img-wrap relative mb-3">
                             <Image src="/images/about-page/laboratory-img-2.png"
                                    className="object-cover"
-                                   alt="laboratory-img"
+                                   alt="Dental technician working with CAD/CAM equipment at Respect U Dental Lab"
                                    fill
                             />
                         </div>
