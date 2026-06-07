@@ -17,9 +17,9 @@ export const metadata: Metadata = {
     url: "https://respectudental.com",
     images: [
       {
-        url: "https://respectudental.com/images/logo-respectu.png",
-        width: 256,
-        height: 256,
+        url: "https://respectudental.com/images/logo-respectu-1200-630.png",
+        width: 1200,
+        height: 630,
         alt: "Respect U Dental Lab Logo",
       },
     ],
