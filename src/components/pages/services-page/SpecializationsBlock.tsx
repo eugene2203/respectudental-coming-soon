@@ -67,7 +67,7 @@ export default function SpecializationsBlock() {
                                     {/*<Link href={item.slug} className="fake-link-block"></Link>*/}
                                     <Image src={item.img}
                                            className="object-cover"
-                                           alt="expertise-card"
+                                           alt={item.alt}
                                            fill
                                     />
                                 </div>
