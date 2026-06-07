@@ -18,7 +18,7 @@ export default function BreadCrumbs({parentPages, page}: BreadCrumbsProps) {
 
                     {/* Parent pages */}
                     {parentPages && parentPages.map((parentPage, index) => (
-                        <li key={`parent-link-${index}`} className="breadcrumbs__item">
+                        <li key={`parent-link-${index}`} className="breadcrumbs__item flex items-center">
                             <svg className="svg-icon shrink-0 mr-2">
                                 <use xlinkHref="/images/sprite.svg#arrow-right-icon"></use>
                             </svg>
