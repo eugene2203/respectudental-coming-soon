@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 import { getAllBlogSlugs } from '@/lib/blog'
+import { getAllSpecializationSlugs } from '@/lib/specializations'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://respectudental.com'
@@ -10,6 +11,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: currentDate,
     changeFrequency: 'monthly',
     priority: 0.6,
+  }))
+
+  const serviceEntries: MetadataRoute.Sitemap = getAllSpecializationSlugs().map((slug) => ({
+    url: `${baseUrl}/services/${slug}`,
+    lastModified: currentDate,
+    changeFrequency: 'monthly',
+    priority: 0.7,
   }))
 
   return [
@@ -56,5 +64,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.3,
     },
     ...blogEntries,
+    ...serviceEntries,
   ]
 }

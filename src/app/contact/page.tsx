@@ -4,8 +4,7 @@ import ContactBanner from "@/components/pages/contacts-page/ContactBanner";
 import FormBlock from "@/components/pages/contacts-page/FormBlock";
 import ReachOutTabsBlock from "@/components/pages/contacts-page/ReachOutTabsBlock";
 import MapBlock from "@/components/pages/contacts-page/MapBlock";
-import QuestionsBlock from "@/components/pages/contacts-page/QuestionsBlock";
-import Script from "next/script";
+
 
 export const metadata: Metadata = {
   title: "Contact Us | Respect U Dental Lab - Brooklyn, NY | (718) 200-1532",
@@ -35,11 +34,10 @@ export default function ContactPage() {
 
     return (
         <>
-            <Script
+            <script
                 id="breadcrumb-schema"
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-                strategy="beforeInteractive"
             />
 
             <BreadCrumbs page={'Contact Us'}/>

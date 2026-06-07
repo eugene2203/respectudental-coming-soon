@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import BreadCrumbs from "@/components/common/BreadCrumbs";
 import ArticleContent from "@/components/pages/blog-page/ArticleContent";
 import { getBlogPostBySlug, getAllBlogSlugs, blogPosts } from "@/lib/blog";
-import Script from "next/script";
+
 
 interface Props {
     params: Promise<{ slug: string }>;
@@ -70,12 +70,12 @@ export default async function BlogPostPage({ params }: Props) {
 
     return (
         <>
-            <Script
+            <script
                 id="breadcrumb-schema"
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
             />
-            <Script
+            <script
                 id="article-schema"
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}

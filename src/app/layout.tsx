@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "@/styles/tailwind.css";
 import "@/styles/app.scss";
-import Script from "next/script";
+
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import { Toaster } from 'sonner';
@@ -58,7 +58,7 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         />
-        <Script
+        <script
           id="schema-org"
           type="application/ld+json"
           dangerouslySetInnerHTML={{

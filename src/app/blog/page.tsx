@@ -3,7 +3,7 @@ import BreadCrumbs from "@/components/common/BreadCrumbs";
 import BlogBanner from "@/components/pages/blog-page/BlogBanner";
 import BlogList from "@/components/pages/blog-page/BlogList";
 import { blogPosts } from "@/lib/blog";
-import Script from "next/script";
+
 
 export const metadata: Metadata = {
     title: "Dental Lab Blog | Expert Insights from Respect U Dental Lab",
@@ -39,7 +39,7 @@ const breadcrumbSchema = {
 export default function BlogPage() {
     return (
         <>
-            <Script
+            <script
                 id="breadcrumb-schema"
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
