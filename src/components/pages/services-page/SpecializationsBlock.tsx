@@ -9,37 +9,43 @@ const cards = [
         img: '/images/services-page/img-1.png',
         title: 'Crown & Bridge',
         slug: '/',
-        text: 'Premium restorations using high-translucency zirconia and hand-layered porcelain for natural esthetics.'
+        text: 'Premium restorations using high-translucency zirconia and hand-layered porcelain for natural esthetics.',
+        alt: 'Zirconia crown and bridge restoration example'
     },
     {
         img: '/images/services-page/img-2.png',
         title: 'Implant Restorations',
         slug: '/',
-        text: 'Custom abutments and screw-retained solutions for all major implant systems with high precision fit.'
+        text: 'Custom abutments and screw-retained solutions for all major implant systems with high precision fit.',
+        alt: 'Custom dental implant abutment restoration'
     },
     {
         img: '/images/services-page/img-3.png',
         title: 'Digital Workflow',
         slug: '/',
-        text: 'Seamless integration with 3Shape, iTero, and Medit scanners for faster turnaround and better accuracy.'
+        text: 'Seamless integration with 3Shape, iTero, and Medit scanners for faster turnaround and better accuracy.',
+        alt: 'Digital dental workflow with 3Shape scanner'
     },
     {
         img: '/images/services-page/img-4.png',
         title: 'Removable Prosthetics',
         slug: '/',
-        text: 'Durable dentures, partials, and Valplast solutions designed for maximum comfort and long-term stability.'
+        text: 'Durable dentures, partials, and Valplast solutions designed for maximum comfort and long-term stability.',
+        alt: 'Removable partial denture prosthetic'
     },
     {
         img: '/images/services-page/img-5.png',
         title: 'Orthodontics',
         slug: '/',
-        text: 'Custom clear aligner manufacturing and orthodontic appliances tailored to specific clinical treatment plans.'
+        text: 'Custom clear aligner manufacturing and orthodontic appliances tailored to specific clinical treatment plans.',
+        alt: 'Clear aligner orthodontic appliance'
     },
     {
         img: '/images/services-page/img-6.png',
         title: 'Custom Esthetics',
         slug: '/',
-        text: 'Personalized shade matching and diagnostic wax-ups to ensure predictable results for complex cases.'
+        text: 'Personalized shade matching and diagnostic wax-ups to ensure predictable results for complex cases.',
+        alt: 'Custom shade matching for dental esthetics'
     },
 ];
 

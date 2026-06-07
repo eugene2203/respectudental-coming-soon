@@ -21,7 +21,7 @@ export default function ServicesBanner() {
                         <div className="main-banner__right relative">
                             <Image src="/images/services-page/services-banner.png"
                                    className="object-cover"
-                                   alt="Banner"
+                                   alt="CAD/CAM dental milling equipment at Respect U Dental Lab Brooklyn"
                                    fill
                             />
                         </div>
