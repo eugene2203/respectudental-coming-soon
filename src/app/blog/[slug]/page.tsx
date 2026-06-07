@@ -62,6 +62,7 @@ export default async function BlogPostPage({ params }: Props) {
         "description": post.excerpt,
         "datePublished": post.date,
         "dateModified": post.date,
+        "image": `https://respectudental.com${post.image}`,
         "author": {
             "@type": "Organization",
             "name": "Respect U Dental Lab"
