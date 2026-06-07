@@ -18,7 +18,8 @@ export default function MainBanner() {
                     <div className="main-banner__right relative">
                         <Image src="/images/main-page/main-image.png"
                                className="object-cover"
-                               alt="Banner"
+                               alt="Dental lab technician crafting zirconia crown in Brooklyn"
+                               priority
                                fill
                         />
                     </div>

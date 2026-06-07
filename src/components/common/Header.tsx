@@ -23,7 +23,7 @@ export default function Header() {
                         {pathname !== '/' &&
                             <Link href="/" className="fake-link-block" onClick={() => setShowMobileMenu(false)}></Link>
                         }
-                        <svg className="svg-icon">
+                        <svg className="svg-icon" aria-label="Respect U Dental Lab">
                             <use xlinkHref="/images/sprite.svg#logo-icon"></use>
                         </svg>
                     </div>
