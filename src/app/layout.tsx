@@ -18,18 +18,18 @@ export const metadata: Metadata = {
     description: "Respect U Dental Lab - A New Vision for Dental Restorations. No Mistakes.",
     images: [
       {
-        url: "https://respectudental.com/images/logo-respectu.png",
-        width: 256,
-        height: 256,
+        url: "https://respectudental.com/images/logo-respectu-1200-630.png",
+        width: 1200,
+        height: 630,
         alt: "Respect U Dental Lab Logo",
       },
     ],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "Respect U Dental Lab | Crowns, Implants & Prosthetics in Brooklyn, NY",
     description: "Respect U Dental Lab - A New Vision for Dental Restorations. No mistakes.",
-    images: ["https://respectudental.com/images/og-image-1200-630.png"],
+    images: ["https://respectudental.com/images/logo-respectu-1200-630.png"],
   },
   icons: {
     icon: [
