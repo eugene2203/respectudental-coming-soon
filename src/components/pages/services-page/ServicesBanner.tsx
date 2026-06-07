@@ -31,18 +31,15 @@ export default function ServicesBanner() {
                         </div>
                     </div>
                     <div className="banner-buttons xl:flex items-center mt-4 xl:mt-0 gap-3" style={{bottom: '35px'}}>
-                        <div className="btn-black flex items-center">
-                            <svg className="svg-icon mr-2">
-                                <use xlinkHref="/images/sprite.svg#download-icon"></use>
-                            </svg>
-                            <span> Download Price List (PDF)</span>
-                        </div>
-                        <Link href={`/contact`} className="btn-default flex items-center justify-center">
+                        {/*<div className="btn-black flex items-center">*/}
+                        {/*    <svg className="svg-icon mr-2">*/}
+                        {/*        <use xlinkHref="/images/sprite.svg#download-icon"></use>*/}
+                        {/*    </svg>*/}
+                        {/*    <span> Download Price List (PDF)</span>*/}
+                        {/*</div>*/}
+                        <Link href={`/contact`} className="btn-black flex items-center justify-center">
                             Contact the Lab
                         </Link>
-                        {/*<div className="btn-default flex items-center">*/}
-                        {/*    <span>Contact the Lab</span>*/}
-                        {/*</div>*/}
                     </div>
                 </div>
             </div>

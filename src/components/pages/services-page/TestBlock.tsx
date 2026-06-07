@@ -18,9 +18,9 @@ export default function TestBlock() {
                                 <use xlinkHref="/images/sprite.svg#arrow-icon"></use>
                             </svg>
                         </Link>
-                        <button className="btn-default flex items-center justify-center">
-                            Download Price Booklet
-                        </button>
+                        {/*<button className="btn-default flex items-center justify-center">*/}
+                        {/*    Download Price Booklet*/}
+                        {/*</button>*/}
                     </div>
                 </div>
             </div>

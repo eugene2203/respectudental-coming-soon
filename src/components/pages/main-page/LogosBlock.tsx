@@ -7,7 +7,7 @@ export default function LogosBlock() {
 
     return (
         <div className="laboratory-info__logos">
-            <h5 className="mb-2">Some Title Here</h5>
+            {/*<h5 className="mb-2">Some Title Here</h5>*/}
             <div className="flex flex-wrap xl:flex-nowrap gap-8 justify-center md:justify-start">
                 {logos.map((logoIcon, i) => {
                     return (

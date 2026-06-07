@@ -31,7 +31,7 @@ export default function FaqItem({ title, text }: FaqItemProps) {
                 </div>
             </div>
             <div ref={contentRef} className="faq-block__item-text" style={{ maxHeight }}>
-                <div className="pt-3">{text}</div>
+                <div className="pt-3" dangerouslySetInnerHTML={{__html:text}}></div>
             </div>
         </div>
     );
