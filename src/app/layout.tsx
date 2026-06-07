@@ -116,10 +116,7 @@ export default function RootLayout({
         <div className="main-wrap flex flex-col min-h-screen relative">
           <Header />
           <main className="grow">{children}</main>
-          <Toaster
-              position="top-right"
-              richColors
-          />
+          <Toaster position="top-right" richColors />
           <Footer />
         </div>
       </body>
