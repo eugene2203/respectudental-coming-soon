@@ -23,7 +23,7 @@ export default function MainBanner() {
                                fill
                         />
                     </div>
-                    <div className="banner-buttons xl:flex items-center mt-4 xl:mt-0 gap-3" style={{bottom: '70px'}}>
+                    <div className="banner-buttons xl:flex items-center mt-4 xl:mt-0 gap-3" style={{bottom: '50px'}}>
                         <Link href={`/submit-case`} className="btn-main flex items-center justify-center">
                             Submit the Case
                             <svg className="svg-icon ml-2">
