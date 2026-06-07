@@ -180,7 +180,7 @@ export default function SubmitCaseForm() {
                             id="fixedRestorationOptions"
                             label="Fixed restoration options"
                             as="textarea"
-                            rows={5}
+                            rows={4}
                             register={register}
                             errors={errors}
                             isSubmitting={isSubmitting}
@@ -189,7 +189,7 @@ export default function SubmitCaseForm() {
                             id="fixedSpecificInstructions"
                             label="Specific instructions:"
                             as="textarea"
-                            rows={5}
+                            rows={4}
                             register={register}
                             errors={errors}
                             isSubmitting={isSubmitting}
@@ -200,7 +200,7 @@ export default function SubmitCaseForm() {
                             id="removableRestoration"
                             label="Removable restoration"
                             as="textarea"
-                            rows={5}
+                            rows={4}
                             register={register}
                             errors={errors}
                             isSubmitting={isSubmitting}
@@ -209,7 +209,7 @@ export default function SubmitCaseForm() {
                             id="removableSpecificInstructions"
                             label="Specific instructions:"
                             as="textarea"
-                            rows={5}
+                            rows={4}
                             register={register}
                             errors={errors}
                             isSubmitting={isSubmitting}
@@ -240,9 +240,9 @@ export default function SubmitCaseForm() {
                     <div>
                         <FormField<SubmitCaseFormData>
                             id="additionalInstructions"
-                            label="Specific instructions:"
+                            label="Shade:"
                             as="textarea"
-                            rows={5}
+                            rows={4}
                             register={register}
                             errors={errors}
                             isSubmitting={isSubmitting}
@@ -258,9 +258,9 @@ export default function SubmitCaseForm() {
                             type="submit"
                             onClick={handleSendPDF}
                             disabled={isSubmitting || isGeneratingPDF}
-                            className="btn-main submit-button w-full sm:w-1/2"
+                            className="btn-main submit-button w-full sm:w-1/2 m-auto"
                         >
-                            {isGeneratingPDF? 'Generating PDF...' : isSubmitting ? 'Sending...' : 'Submit Case'}
+                            {isGeneratingPDF? 'Generating & Send PDF...' : 'Submit Case'}
                         </button>
                     </div>
                 </form>
