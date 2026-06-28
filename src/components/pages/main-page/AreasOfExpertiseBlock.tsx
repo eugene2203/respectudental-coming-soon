@@ -30,7 +30,7 @@ export default function AreasOfExpertiseBlock() {
                         return (
                             <div key={`expertise-card-${i}`} className="expertise-card">
                                 <div className="expertise-card__img relative">
-                                    <Link href={item.slug} className="fake-link-block" area-label={item.title}></Link>
+                                    <Link href={item.slug} className="fake-link-block" aria-label={item.title}></Link>
                                     <Image src={item.img}
                                            className="object-cover"
                                            alt={item.alt}
