@@ -1,9 +1,5 @@
 # Robots.txt for Respect U Dental Lab
 # https://respectudental.com
-# Block all indexing
-
-#User-agent: *
-#Disallow: /
 
 User-agent: *
 Allow: /

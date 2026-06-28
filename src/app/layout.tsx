@@ -1,10 +1,18 @@
 import type { Metadata } from "next";
+import { Inter } from 'next/font/google';
+
 import "@/styles/tailwind.css";
 import "@/styles/app.scss";
 
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import { Toaster } from 'sonner';
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: "Respect U Dental Lab | Crowns, Implants & Prosthetics in Brooklyn, NY",
@@ -50,7 +58,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.className}>
       <head>
         {/* Google Tag Manager */}
         <script
@@ -66,10 +74,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        />
         <script
           id="schema-org"
           type="application/ld+json"
