@@ -13,6 +13,7 @@ export default function MainLaboratoryBlock() {
                                    className="object-cover"
                                    alt="CDT-accredited dental lab workspace in Brooklyn, NY"
                                    fill
+                                   quality={65}
                             />
                         </div>
                         <div className="laboratory-info__side-text">
