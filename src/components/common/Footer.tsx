@@ -8,7 +8,7 @@ export default function Footer() {
     const pathname = usePathname();
     const socialList: SocialItem[] = [
         // {icon: 'fb-icon', link: '/'},
-        {icon: 'insta-icon', link: 'https://www.instagram.com/respectudental/'},
+        {icon: 'insta-icon', link: 'https://www.instagram.com/respectudental/', ariaLabel: 'Instagram'},
         // {icon: 'whatsapp-icon', link: '/'},
     ]
 
@@ -32,7 +32,7 @@ export default function Footer() {
                         <div className="social-block flex gap-4">
                             {socialList.map((item, i) => {
                                 return (
-                                    <a key={`social-link-${i}`} href={item.link} target="_blank">
+                                    <a key={`social-link-${i}`} href={item.link} target="_blank" aria-label={item.ariaLabel}>
                                         <svg className="svg-icon">
                                             <use xlinkHref={`/images/sprite.svg#${item.icon}`}></use>
                                         </svg>

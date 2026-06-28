@@ -69,4 +69,5 @@ export interface MenuItem {
 export interface SocialItem {
   icon: string;
   link: string;
+  ariaLabel: string;
 }
