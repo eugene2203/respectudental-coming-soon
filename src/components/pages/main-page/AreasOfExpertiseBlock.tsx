@@ -30,7 +30,7 @@ export default function AreasOfExpertiseBlock() {
                         return (
                             <div key={`expertise-card-${i}`} className="expertise-card">
                                 <div className="expertise-card__img relative">
-                                    <Link href={item.slug} className="fake-link-block"></Link>
+                                    <Link href={item.slug} className="fake-link-block" area-label={item.title}></Link>
                                     <Image src={item.img}
                                            className="object-cover"
                                            alt={item.alt}
@@ -40,12 +40,6 @@ export default function AreasOfExpertiseBlock() {
                                 <div className="p-4">
                                     <h5 className="mb-3">{item.title}</h5>
                                     <p className="mb-8">{item.text}</p>
-                                    {/*<Link href={item.slug} className="inline-flex items-center justify-center">*/}
-                                    {/*    Learn more*/}
-                                    {/*    <svg className="svg-icon ml-2">*/}
-                                    {/*        <use xlinkHref="/images/sprite.svg#arrow-icon"></use>*/}
-                                    {/*    </svg>*/}
-                                    {/*</Link>*/}
                                 </div>
                             </div>
                         )

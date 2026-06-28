@@ -20,7 +20,7 @@ export default function SpecializationsBlock() {
                         return (
                             <div key={`expertise-card-${i}`} className="expertise-card">
                                 <div className="expertise-card__img relative">
-                                    <Link href={`/services/${item.slug}`} className="fake-link-block" aria-label={`${item.title}`}></Link>
+                                    <Link href={`/services/${item.slug}`} className="fake-link-block" aria-label={item.title}></Link>
                                     <Image src={item.img}
                                            alt={item.alt}
                                            fill
