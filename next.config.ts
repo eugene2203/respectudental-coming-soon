@@ -10,7 +10,6 @@ const nextConfig: NextConfig = {
     // убирает console.log в продакшене
     removeConsole: process.env.NODE_ENV === 'production',
   },
-  reactCompiler: true,
   experimental: {
     turbopackFileSystemCacheForBuild: true,
     optimizePackageImports: ['sonner'],
