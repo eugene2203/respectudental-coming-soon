@@ -52,21 +52,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Google tag (gtag.js) */}
-        <script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-GE76VKDEER"
-        />
+        {/* Google Tag Manager */}
         <script
             dangerouslySetInnerHTML={{
-              __html: `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-GE76VKDEER');
-      `,
+              __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-W3P2HWQJ');`,
             }}
         />
+        {/* End Google Tag Manager */}
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -118,15 +115,23 @@ export default function RootLayout({
                 "closes": "18:00"
               },
               "sameAs": [
-                // "https://www.facebook.com/respectudental",
-                "https://www.instagram.com/respectudental",
-                // "https://www.linkedin.com/company/respectudental"
+                "https://www.instagram.com/respectudental"
               ]
             }),
           }}
         />
       </head>
       <body>
+        {/* Google Tag Manager (noscript) — сразу после открывающего <body> */}
+        <noscript>
+          <iframe
+              src="https://www.googletagmanager.com/ns.html?id=GTM-W3P2HWQJ"
+              height="0"
+              width="0"
+              style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+
         <div className="main-wrap flex flex-col min-h-screen relative">
           <Header />
           <main className="grow">{children}</main>
