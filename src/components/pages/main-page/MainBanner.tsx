@@ -19,8 +19,9 @@ export default function MainBanner() {
                         <Image src="/images/main-page/main-image.png"
                                className="object-cover"
                                alt="Dental lab technician crafting zirconia crown in Brooklyn"
-                               priority
                                fill
+                               loading="eager"
+                               fetchPriority="high"
                         />
                     </div>
                     <div className="banner-buttons xl:flex items-center mt-4 xl:mt-0 gap-3" style={{bottom: '50px'}}>
