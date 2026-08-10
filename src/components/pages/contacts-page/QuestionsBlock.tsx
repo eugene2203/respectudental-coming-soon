@@ -15,10 +15,10 @@ export default function QuestionsBlock() {
             title: 'What is your standard turnaround time?',
             text: '<p>Our standard turnaround time depends on the type of restoration:</p>\n' +
                 '<ul><li>Single crowns & veneers — 5–7 business days</li>\n' +
-                '<li>Bridges (3–4 units) — 7–10 business days</li>\n' +
+                '<li>Bridges (3–4 units) — 5–7 business days</li>\n' +
                 '<li>Implant restorations — 7–10 business days</li>\n' +
-                '<li>Full-arch cases (All-on-4 / All-on-6) — 10–15 business days</li>\n' +
-                '<li>Partial & full dentures — 10–14 business days</li>\n' +
+                '<li>Full-arch cases (All-on-4 / All-on-X) — 10–15 business days</li>\n' +
+                '<li>Cast "RPD" Frame — 10 business days</li>\n' +
                 '<li>Night guards & retainers — 3–5 business days</li>\n' +
                 '</ul>\n' +
                 '<p>We also offer rush service for time-sensitive cases. Please contact us directly to discuss availability and expedited options.</p>\n' +
@@ -28,13 +28,13 @@ export default function QuestionsBlock() {
             text: '<p>We work with a carefully selected range of high-quality materials to ensure durability, aesthetics, and patient comfort:</p>\n' +
                 '<p>Denture Bases</p>\n' +
                 '<ul>\n' +
-                '<li>Acrylic resin (PMMA) — our standard material, proven, durable, and easy to adjust and repair</li>\n' +
+                '<li>Acrylic resin ("Keystone"/Diamond`d) — our standard material, proven, durable, and easy to adjust and repair</li>\n' +
                 '<li>Flexible resin (Valplast / TCS) — for patients who require a metal-free, lightweight, and tissue-friendly option</li>\n' +
-                '<li>Chrome Cobalt (Cast Metal) — for partial denture frameworks requiring maximum strength and minimal bulk</li>\n' +
+                '<li>Cast "RPD" Metalframe — for partial denture frameworks requiring maximum strength and minimal bulk</li>\n' +
                 '</ul>\n' +
                 '<p>Denture Teeth</p>\n' +
                 '<ul>\n' +
-                '<li>Composite resin teeth — good aesthetics at an accessible price point</li>\n' +
+                '<li>Denture teeth (Vita, Ivoclar, Poli-dent "Ref-line", Enigma...)  — good aesthetics at an accessible price point</li>\n' +
                 '<li>Porcelain teeth — available upon request for cases requiring superior wear resistance and a natural look</li>\n' +
                 '</ul>\n' +
                 '<p>Implant-Supported Removables</p>\n' +

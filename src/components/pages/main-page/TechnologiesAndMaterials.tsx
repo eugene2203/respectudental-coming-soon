@@ -15,7 +15,8 @@ export default function TechnologiesAndMaterials() {
     const analysisBar: AnalysisBarItem[] = [
         {title: 'Zirconia (Monolithic)', shortTitle: 'Zirconia', number: '1200', color: '#20B2AA'},
         {title: 'PFM (Metal Ceramic)', shortTitle: 'PFM', number: '800', color: '#228B22'},
-        {title: 'IPS e.max', shortTitle: 'e.max', number: '400', color: '#64748B'}
+        {title: 'IPS e.max', shortTitle: 'e.max', number: '400', color: '#64748B'},
+        {title: 'Hi-impact denture base', shortTitle: 'hi-impact', number: '1200', color: '#c82d21'},
     ];
 
     const maxValue = useMemo(() => {
@@ -53,20 +54,20 @@ export default function TechnologiesAndMaterials() {
                             The use of certified materials ensures long-lasting and predictable results for
                             your patients.
                         </p>
-                        <div className="flex flex-col xl:flex-row gap-3 mb-8">
-                            <button className="btn-main flex items-center justify-center">
-                                Flexural Strength
-                            </button>
-                            <button className="btn-default">Aesthetics (Translucency)</button>
-                        </div>
-                        <div className="laboratory-info__left-text">
-                            <h4 className="mb-4">Your success is <span className="color-text">OUR METRIC</span></h4>
-                            <p className="mb-0">
-                                Zirconia (zirconium dioxide): offers exceptional flexural strength of up
-                                to 1,200 MPa. It is the ideal choice for the posterior teeth, patients with
-                                bruxism, and long-span bridge restorations.
-                            </p>
-                        </div>
+                        {/*<div className="flex flex-col xl:flex-row gap-3 mb-8">*/}
+                        {/*    <button className="btn-main flex items-center justify-center">*/}
+                        {/*        Flexural Strength*/}
+                        {/*    </button>*/}
+                        {/*    <button className="btn-default">Aesthetics (Translucency)</button>*/}
+                        {/*</div>*/}
+                        {/*<div className="laboratory-info__left-text">*/}
+                        {/*    <h4 className="mb-4">Your success is <span className="color-text">OUR METRIC</span></h4>*/}
+                        {/*    <p className="mb-0">*/}
+                        {/*        Zirconia (zirconium dioxide): offers exceptional flexural strength of up*/}
+                        {/*        to 1,200 MPa. It is the ideal choice for the posterior teeth, patients with*/}
+                        {/*        bruxism, and long-span bridge restorations.*/}
+                        {/*    </p>*/}
+                        {/*</div>*/}
                     </div>
                     <div className="technologies-item">
                         <div className="technologies-analysis-wrap">

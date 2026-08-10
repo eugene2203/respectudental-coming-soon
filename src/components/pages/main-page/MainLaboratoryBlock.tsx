@@ -9,7 +9,7 @@ export default function MainLaboratoryBlock() {
                 <div className="laboratory-info flex flex-col-reverse xl:flex-row">
                     <div className="laboratory-info__img shrink-0">
                         <div className="laboratory-info__img-wrap relative mb-3">
-                            <Image src="/images/main-page/laboratory-img.png"
+                            <Image src="/images/main-page/laboratory-img_cleanup.png"
                                    className="object-cover"
                                    alt="CDT-accredited dental lab workspace in Brooklyn, NY"
                                    fill
@@ -39,7 +39,7 @@ export default function MainLaboratoryBlock() {
                         <div className="laboratory-info__quote mb-3">
                             WE DON’T STOP WORKING UNTIL YOU AND YOUR PATIENTS ARE SATISFIED.
                         </div>
-                        <LogosBlock/>
+                        {/*<LogosBlock/>*/}
                     </div>
                 </div>
             </div>
