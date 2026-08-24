@@ -89,7 +89,7 @@ export default function TechnologiesAndMaterials() {
                                                          width: isVisible ? `${width}%` : '0%'
                                                      }}
                                                 >
-                                                    {item.number}
+                                                    &nbsp;{/*{item.number}*/}
                                                 </div>
                                             </div>
                                         </div>
