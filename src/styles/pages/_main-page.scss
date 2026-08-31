@@ -312,8 +312,7 @@
 }
 
 .slide {
-  animation: slideCrossfade 10s infinite ease-in-out;
-  //will-change: transform, opacity;
+  animation: slideCrossfade 6s infinite ease-in-out;
 }
 
 .slideA {
@@ -321,11 +320,11 @@
 }
 
 .slideB {
-  animation-delay: -5s; /* сдвиг фазы ровно на полцикла */
+  animation-delay: -3s; /* сдвиг фазы ровно на полцикла */
 }
 
 @keyframes slideCrossfade {
-  0%, 40% {
+  0%, 35% {
     transform: translateX(0);
     opacity: 1;
   }
@@ -333,11 +332,11 @@
     transform: translateX(-6%);
     opacity: 0;
   }
-  60% {
+  85% {
     transform: translateX(6%);
     opacity: 0;
   }
-  90%, 100% {
+  100% {
     transform: translateX(0);
     opacity: 1;
   }
