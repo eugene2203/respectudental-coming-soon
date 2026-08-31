@@ -5,17 +5,17 @@ import Link from "next/link";
 export default function AreasOfExpertiseBlock() {
     const cards = [
         {
-            img: '/images/main-page/teeth-img-1.png',
+            img: '/images/main-page/crown_and_bridge_1.webp',
             title: 'CROWN & BRIDGE DEPARTMENT',
             slug: '/services',
-            text: 'Highly aesthetic crowns and bridges. We use zirconia, IPS e.max and metal-ceramic for a perfect fit along the edges.',
+            text: 'Highly aesthetic crowns and bridges. We use zirconia, IPS e.max and metal-ceramic for a perfect fit along the edges.Customized implant solutions. Screw-retained crowns and custom abutments that ensure a perfect emergence profile.',
             alt: 'Zirconia dental crown and bridge restorations'
         },
         {
-            img: '/images/main-page/teeth-img-2.png',
+            img: '/images/main-page/removable_1.webp',
             title: 'REMOVABLE DEPARTMENT',
             slug: '/services',
-            text: 'Customized implant solutions. Screw-retained crowns and custom abutments that ensure a perfect emergence profile.',
+            text: '',
             alt: 'Custom removable dental prosthetics and dentures'
         },
     ];

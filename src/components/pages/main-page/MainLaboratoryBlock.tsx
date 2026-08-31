@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import LogosBlock from "./LogosBlock";
+
 
 export default function MainLaboratoryBlock() {
     return (
@@ -8,12 +8,20 @@ export default function MainLaboratoryBlock() {
             <div className="container">
                 <div className="laboratory-info flex flex-col-reverse xl:flex-row">
                     <div className="laboratory-info__img shrink-0">
-                        <div className="laboratory-info__img-wrap relative mb-3">
-                            <Image src="/images/main-page/laboratory-img_cleanup.png"
-                                   className="object-cover"
-                                   alt="CDT-accredited dental lab workspace in Brooklyn, NY"
-                                   fill
-                                   quality={65}
+                        <div className="laboratory-info__img-wrap relative mb-3 overflow-hidden">
+                            <Image
+                                src="/images/main-page/laboratory_1.webp"
+                                className={`object-cover absolute inset-0 slide slideA`}
+                                alt="CDT-accredited dental lab workspace in Brooklyn, NY"
+                                fill
+                                priority
+                            />
+                            <Image
+                                src="/images/main-page/laboratory_2.webp"
+                                className={`object-cover absolute inset-0 slide slideB`}
+                                alt="CDT-accredited dental lab workspace in Brooklyn, NY"
+                                fill
+                                priority
                             />
                         </div>
                         <div className="laboratory-info__side-text">

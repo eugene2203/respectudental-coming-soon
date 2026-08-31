@@ -310,3 +310,44 @@
     left: 0;
   }
 }
+
+.slide {
+  animation: slideCrossfade 10s infinite ease-in-out;
+  //will-change: transform, opacity;
+}
+
+.slideA {
+  animation-delay: 0s;
+}
+
+.slideB {
+  animation-delay: -5s; /* сдвиг фазы ровно на полцикла */
+}
+
+@keyframes slideCrossfade {
+  0%, 40% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(-6%);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(6%);
+    opacity: 0;
+  }
+  90%, 100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+//@media (prefers-reduced-motion: reduce) {
+//  .slide {
+//    animation: none;
+//  }
+//  .slideB {
+//    opacity: 0; /* оставляем только первую картинку статично */
+//  }
+//}
