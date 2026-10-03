@@ -136,5 +136,5 @@ Private project for Respect U Dental Lab.
 
 - **Website**: https://respectudental.com
 - **Email**: contact@respectudental.com
-- **Phone**: +1 (718) 200-1532
+- **Phone**: +1 (347) 527-6096
 - **Address**: 1 Woodside Ave, Brooklyn, NY 11223

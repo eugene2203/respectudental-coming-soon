@@ -48,7 +48,7 @@ export default function Footer() {
                         >
                             1 Woodside Ave, Brooklyn, NY 11223
                         </a>
-                        <a href="tel:7182001532">(718) 200-1532</a>
+                        <a href="tel:3475276096">(347) 527-6096</a>
                         <a href="mailto:contact@respectudental.com">contact@respectudental.com</a>
                     </div>
                     <div className="footer-column">

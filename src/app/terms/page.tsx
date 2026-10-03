@@ -54,7 +54,7 @@ export default function PrivacyPAge() {
                             Help Instructions: If you are experiencing issues with the messaging program you
                             can reply with the keyword "HELP" for more assistance, or you can get help directly
                             at <a href="mailto:contact@respectudental.com">contact@respectudental.com</a>&nbsp;
-                            or by calling <a href="tel:17182001532">+1 (718) 200-1532</a>.<br/>
+                            or by calling <a href="tel:13475276096">+1 (347) 527-6096</a>.<br/>
                             Carrier Liability: Carriers are not liable for delayed or undelivered messages.
                         </p>
                         <p>
@@ -116,7 +116,7 @@ export default function PrivacyPAge() {
                                     1 Woodside Ave, Brooklyn, NY 11223
                                 </a>
                             </p>
-                            <p>📞 Phone: <a href="tel:17182001532">+1 (718) 200-1532</a></p>
+                            <p>📞 Phone: <a href="tel:13475276096">+1 (347) 527-6096</a></p>
                             <p>✉️ Email: <a href="mailto:contact@respectudental.com" target="_blank">contact@respectudental.com</a></p>
                             <p>🌐 Website: <a href="https://respectudental.com" target="_blank"> https://respectudental.com</a></p>
                         </div>

@@ -43,7 +43,7 @@ export default function Header() {
                                 )
                             })}
                             <li>
-                                <a href="tel:7182001532" className="font-bold" target="_blank">(718) 200-1532</a>
+                                <a href="tel:3475276096" className="font-bold" target="_blank">(347) 527-6096</a>
                             </li>
                             <li>
                                 <Link href={`/submit-case`} className="btn-main flex items-center xl:ml-4" onClick={() => setShowMobileMenu(false)}>

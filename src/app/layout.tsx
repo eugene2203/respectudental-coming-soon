@@ -86,7 +86,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               "image": "https://respectudental.com/images/logo-respectu.png",
               "@id": "https://respectudental.com",
               "url": "https://respectudental.com",
-              "telephone": "+17182001532",
+              "telephone": "+13475276096",
               "areaServed": "Brooklyn, New York",
               "knowsAbout": [
                 "Dental crowns",

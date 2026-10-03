@@ -23,8 +23,8 @@ export default function ContactInfo() {
             id: 2,
             title: 'Phone Number',
             icon: 'phone',
-            link: 'tel:7182001532',
-            text1: `(718) 200-1532`,
+            link: 'tel:3475276096',
+            text1: `(347) 527-6096`,
             text2: `Direct laboratory line for clinics and clinicians`
         },
         {

@@ -3,7 +3,7 @@ import BreadCrumbs from "@/components/common/BreadCrumbs";
 import SubmitCaseForm from "@/components/forms/SubmitCaseForm";
 
 export const metadata: Metadata = {
-  title: "Submit the Case | Respect U Dental Lab - Brooklyn, NY | (718) 200-1532",
+  title: "Submit the Case | Respect U Dental Lab - Brooklyn, NY | (347) 527-6096",
   description: "Submit your dental lab case online. Fill out the prescription form for fixed or removable prosthetics. Fast processing, precise fabrication. Serving Brooklyn dental clinics.",
   keywords: [""],
   openGraph: {
