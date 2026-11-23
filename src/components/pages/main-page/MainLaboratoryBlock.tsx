@@ -10,14 +10,14 @@ export default function MainLaboratoryBlock() {
                     <div className="laboratory-info__img shrink-0">
                         <div className="laboratory-info__img-wrap relative mb-3 overflow-hidden">
                             <Image
-                                src="/images/main-page/laboratory_1.webp"
+                                src="/images/main-page/laboratory_1.jpeg"
                                 className={`object-cover absolute inset-0 slide slideA`}
                                 alt="CDT-accredited dental lab workspace in Brooklyn, NY"
                                 fill
                                 priority
                             />
                             <Image
-                                src="/images/main-page/laboratory_2.webp"
+                                src="/images/main-page/laboratory_2.jpeg"
                                 className={`object-cover absolute inset-0 slide slideB`}
                                 alt="CDT-accredited dental lab workspace in Brooklyn, NY"
                                 fill
